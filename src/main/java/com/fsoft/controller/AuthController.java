@@ -1,0 +1,88 @@
+package com.fsoft.controller;
+
+import java.security.Principal;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.fsoft.model.Role;
+import com.fsoft.model.User;
+import com.fsoft.repository.RoleRepository;
+import com.fsoft.repository.UserRepository;
+
+@Controller
+public class AuthController {
+
+	@Autowired
+	private UserRepository userRepository;
+
+	@Autowired
+	private RoleRepository roleRepository;
+
+	@Autowired
+	private BCryptPasswordEncoder encoder;
+
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String registerPage(Model model, Principal principal) {
+		model.addAttribute("user", new User());
+		return principal == null ? "pages/register" : "redirect:/";
+	}
+
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String registerProcess(Model model, User user) {
+		Role roleUser = roleRepository.findByName("ROLE_USER").get();
+		Set<Role> roles = new HashSet<>();
+		roles.add(roleUser);
+
+		user.setRoles(roles);
+		user.setPassword(encoder.encode(user.getPassword()));
+
+		User userSave = userRepository.save(user);
+
+		return userSave != null ? "redirect:/register?success" : "pages/failed";
+	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginPage(Model model, Principal principal) {
+		model.addAttribute("user", new User());
+		return principal == null ? "pages/login" : "redirect:/";
+	}
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logoutPage(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (auth != null) {
+			new SecurityContextLogoutHandler().logout(request, response, auth);
+		}
+		return "redirect:/login";
+	}
+
+	@RequestMapping(value = "/access-denied", method = RequestMethod.GET)
+	public String accessDenied() {
+		return "pages/403_forbidden";
+	}
+
+	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	public String userPage(Model model) {
+		return "pages/user";
+	}
+	
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	public String adminPage(Model model) {
+		return "pages/admin";
+	}
+}
