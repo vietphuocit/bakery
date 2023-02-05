@@ -15,7 +15,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -77,10 +76,11 @@ public class AuthController {
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
-	public String userPage(Model model) {
+	public String userPage(Model model, Principal principal) {
+		model.addAttribute("fullName", userRepository.findByUsername(principal.getName()).get().getFullName());
 		return "pages/user";
 	}
-	
+
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String adminPage(Model model) {
 		return "pages/admin";

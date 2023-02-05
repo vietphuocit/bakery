@@ -1,7 +1,5 @@
 package com.fsoft.model;
 
-import org.hibernate.annotations.NaturalId;
-
 import javax.persistence.*;
 
 @Entity
@@ -11,8 +9,6 @@ public class Role {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NaturalId
-	@Column(length = 60)
 	private String name;
 
 	public Role() {

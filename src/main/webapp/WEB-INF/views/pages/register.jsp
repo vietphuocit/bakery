@@ -11,9 +11,9 @@
 	<form:form class="w-25 border rounded p-4 m-auto bg-light bg-gradient"
 		action="/bakery/register" method="POST" modelAttribute="user">
 		<div class="mb-3">
-			<form:label for="name" class="form-label" path="name">Name</form:label>
-			<form:input type="text" class="form-control" id="name" path="name"
-				name="name" />
+			<form:label for="fullName" class="form-label" path="fullName">Name</form:label>
+			<form:input type="text" class="form-control" id="fullName" path="fullName"
+				name="fullName" />
 		</div>
 		<div class="mb-3">
 			<form:label for="username" class="form-label" path="username">Username</form:label>
