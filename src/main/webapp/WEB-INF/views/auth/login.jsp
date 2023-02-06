@@ -2,17 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 
-<!DOCTYPE html>
-<html lang="en" class="light-style customizer-hide" dir="ltr"
-	data-theme="theme-default"
-	data-assets-path='<core:url value="/template/sneat/assets/"/>'
-	data-template="vertical-menu-template-free">
-<head>
-<meta charset="utf-8" />
-<title>Login</title>
-</head>
-
 <body>
+	<h1><%= request.getParameter("failed") %></h1>
 	<div class="container-xxl">
 		<div class="authentication-wrapper authentication-basic container-p-y">
 			<div class="authentication-inner">
@@ -24,10 +15,6 @@
 								class="app-brand-text demo text-body fw-bolder">Sneat</span>
 							</a>
 						</div>
-						<h4 class="mb-2">Welcome to Sneat!</h4>
-						<p class="mb-4">Please sign-in to your account and start the
-							website</p>
-
 						<form id="formAuthentication" class="mb-3"
 							action="/bakery/j_spring_security_check" method="POST">
 							<div class="mb-3">
@@ -75,4 +62,3 @@
 		</div>
 	</div>
 </body>
-</html>

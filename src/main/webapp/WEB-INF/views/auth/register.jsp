@@ -3,15 +3,6 @@
 <%@ include file="/common/taglib.jsp"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<!DOCTYPE html>
-<html lang="en" class="light-style customizer-hide" dir="ltr"
-	data-theme="theme-default" data-assets-path="../assets/"
-	data-template="vertical-menu-template-free">
-<head>
-<meta charset="utf-8" />
-<title>Register</title>
-</head>
-
 <body>
 	<div class="container-xxl">
 		<div class="authentication-wrapper authentication-basic container-p-y">
@@ -30,13 +21,14 @@
 							<div class="mb-3">
 								<label for="fullName" class="form-label">Your name</label>
 								<form:input type="text" class="form-control" id="fullName"
-									path="fullName" name="fullName" placeholder="Enter your name" />
+									path="fullName" name="fullName" placeholder="Enter your name"
+									required="required" />
 							</div>
 							<div class="mb-3">
 								<label for="username" class="form-label">Username</label>
 								<form:input type="text" class="form-control" id="username"
 									path="username" name="username"
-									placeholder="Enter your username" />
+									placeholder="Enter your username" required="required" />
 							</div>
 							<div class="mb-3 form-password-toggle">
 								<label for="password" class="form-label">Password</label>
@@ -84,4 +76,3 @@
 		</div>
 	</div>
 </body>
-</html>

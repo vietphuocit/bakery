@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<?xml-model href=""?>
 <decorators defaultdir="/decorators">
 	<decorator name="login" page="auth.jsp">
 		<pattern>/login</pattern>
-	</decorator>
-	<decorator name="register" page="auth.jsp">
 		<pattern>/register</pattern>
 	</decorator>
 </decorators>
