@@ -38,7 +38,7 @@ public class AuthController {
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerPage(Model model, Principal principal) {
 		model.addAttribute("user", new User());
-		return principal == null ? "pages/register" : "redirect:/";
+		return principal == null ? "auth/register" : "redirect:/";
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
@@ -50,15 +50,17 @@ public class AuthController {
 		user.setRoles(roles);
 		user.setPassword(encoder.encode(user.getPassword()));
 
+		System.out.println(user);
+
 		User userSave = userRepository.save(user);
 
-		return userSave != null ? "redirect:/register?success" : "pages/failed";
+		return userSave != null ? "redirect:/register?success" : "redirect:/register?failed";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage(Model model, Principal principal) {
 		model.addAttribute("user", new User());
-		return principal == null ? "pages/login" : "redirect:/";
+		return principal == null ? "auth/login" : "redirect:/";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
@@ -72,17 +74,6 @@ public class AuthController {
 
 	@RequestMapping(value = "/access-denied", method = RequestMethod.GET)
 	public String accessDenied() {
-		return "pages/403_forbidden";
-	}
-
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
-	public String userPage(Model model, Principal principal) {
-		model.addAttribute("fullName", userRepository.findByUsername(principal.getName()).get().getFullName());
-		return "pages/user";
-	}
-
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public String adminPage(Model model) {
-		return "pages/admin";
+		return "error/403_forbidden";
 	}
 }

@@ -85,9 +85,9 @@ public class PersistenceJPAConfig {
 	public PersistenceExceptionTranslationPostProcessor exceptionTranslation() {
 		return new PersistenceExceptionTranslationPostProcessor();
 	}
-	
+
 	@Bean
-	public SessionFactory sessionFactory(HibernateEntityManagerFactory hemf){
-	    return hemf.getSessionFactory();
+	public SessionFactory sessionFactory(HibernateEntityManagerFactory hemf) {
+		return hemf.getSessionFactory();
 	}
 }

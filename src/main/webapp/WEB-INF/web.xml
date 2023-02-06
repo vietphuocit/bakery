@@ -51,12 +51,6 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	<!-- Configure error page -->
-	<error-page>
-		<error-code>404</error-code>
-		<location>/WEB-INF/views/pages/404_not_found.jsp</location>
-	</error-page>
-
 	<!-- -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -77,4 +71,21 @@
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
+
+	<!-- sitemesh filter -->
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/views/error/404_not_found.jsp</location>
+	</error-page>
 </web-app>
