@@ -1,3 +1,4 @@
+<%@page import="org.springframework.ui.Model"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
@@ -46,26 +47,58 @@
 
 <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
 <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+
+<!-- Bootstrap 5 -->
+<!-- <link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous"> -->
+
 <script src='<core:url value="/template/assets/js/config.js"/>'></script>
 </head>
 <body>
 	<%@ include file="/common/admin/header.jsp"%>
 	<dec:body />
-	<div
-		class="bs-toast toast fade show bg-success m-4 toast-placement-ex top-0 end-0"
+	<div id="toast-auth"
+		class="bs-toast toast fade m-4 toast-placement-ex top-0 end-0"
 		role="alert" aria-live="assertive" aria-atomic="true"
 		data-delay="2000">
 		<div class="toast-header">
 			<i class="bx bx-bell me-2"></i>
-			<div class="me-auto fw-semibold">Bootstrap</div>
-			<small>11 mins ago</small>
+			<div class="me-auto fw-semibold" id="toast-title"></div>
 			<button type="button" class="btn-close" data-bs-dismiss="toast"
 				aria-label="Close"></button>
 		</div>
-		<div class="toast-body">Fruitcake chocolate bar tootsie roll
-			gummies gummies jelly beans cake.</div>
+		<div class="toast-body" id="toast-notification"></div>
 	</div>
 
+	<script type="text/javascript">
+		var toast = document.getElementById("toast-auth");
+		var title = document.getElementById("toast-title");
+		var notification = document.getElementById("toast-notification");
+
+		if (window.location.href.indexOf("login?failed") != -1) {
+			title.innerText = "Đăng nhập thất bại";
+			notification.innerText = "Sai tài khoản hoặc mật khẩu.";
+			toast.classList.add("bg-danger");
+			toast.classList.add("show");
+		} else if (window.location.href.indexOf("register?failed") != -1) {
+			title.innerText = "Đăng ký thất bại";
+			notification.innerText = "Tài khoản đã tồn tại trong hệ thống.";
+			toast.classList.add("bg-danger");
+			toast.classList.add("show");
+		} else if (window.location.href.indexOf("register?success") != -1) {
+			title.innerText = "Đăng ký thành công";
+			notification.innerHTML = "Bạn đã đăng ký thành công, chọn <a href='/bakery/login'>Sign in</a> để đăng nhập.";
+			toast.classList.add("bg-success");
+			toast.classList.add("show");
+		}
+
+		setTimeout(function() {
+			toast.classList.remove("show");
+		}, 3000);
+	</script>
 	<!-- Core JS -->
 	<!-- build:js assets/vendor/js/core.js -->
 	<script
@@ -90,5 +123,9 @@
 
 	<!-- Place this tag in your head or just before your close body tag. -->
 	<script async defer src="https://buttons.github.io/buttons.js"></script>
+	<!-- Bootstrap JS -->
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

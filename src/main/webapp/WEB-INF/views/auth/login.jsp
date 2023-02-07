@@ -3,7 +3,6 @@
 <%@ include file="/common/taglib.jsp"%>
 
 <body>
-	<h1><%= request.getParameter("failed") %></h1>
 	<div class="container-xxl">
 		<div class="authentication-wrapper authentication-basic container-p-y">
 			<div class="authentication-inner">
@@ -15,12 +14,12 @@
 								class="app-brand-text demo text-body fw-bolder">Sneat</span>
 							</a>
 						</div>
-						<form id="formAuthentication" class="mb-3"
-							action="/bakery/j_spring_security_check" method="POST">
+						<form id="formAuthentication" class="mb-3 needs-validation"
+							action="/bakery/j_spring_security_check" method="POST" novalidate>
 							<div class="mb-3">
 								<label for="username" class="form-label">Username</label> <input
 									type="text" class="form-control" id="username" name="username"
-									placeholder="Enter your username" required="required" />
+									placeholder="Enter your username" required />
 							</div>
 							<div class="mb-3 form-password-toggle">
 								<div class="d-flex justify-content-between">
@@ -32,18 +31,18 @@
 								<div class="input-group input-group-merge">
 									<input type="password" id="password" class="form-control"
 										name="password" placeholder="••••••••••"
-										aria-describedby="password" required="required" /> <span
+										aria-describedby="password" required /> <span
 										class="input-group-text cursor-pointer"><i
 										class="bx bx-hide"></i></span>
 								</div>
 							</div>
-							<div class="mb-3">
+							<!-- <div class="mb-3">
 								<div class="form-check">
 									<input class="form-check-input" type="checkbox"
 										id="remember-me" /> <label class="form-check-label"
 										for="remember-me"> Remember Me </label>
 								</div>
-							</div>
+							</div> -->
 							<div class="mb-3">
 								<button class="btn btn-primary d-grid w-100" type="submit">Sign
 									in</button>
@@ -51,7 +50,7 @@
 						</form>
 
 						<p class="text-center">
-							<span>New on our platform?</span> <a
+							<span>New on our website?</span> <a
 								href="<core:url value='/register' />"> <span>Create
 									an account</span>
 							</a>
@@ -61,4 +60,27 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		(function() {
+			'use strict';
+			window.addEventListener('load',
+					function() {
+						// Fetch all the forms we want to apply custom Bootstrap validation styles to
+						var forms = document
+								.getElementsByClassName('needs-validation');
+						// Loop over them and prevent submission
+						var validation = Array.prototype.filter.call(forms,
+								function(form) {
+									form.addEventListener('submit', function(
+											event) {
+										if (form.checkValidity() === false) {
+											event.preventDefault();
+											event.stopPropagation();
+										}
+										form.classList.add('was-validated');
+									}, false);
+								});
+					}, false);
+		})();
+	</script>
 </body>

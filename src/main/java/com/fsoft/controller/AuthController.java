@@ -15,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -37,12 +38,11 @@ public class AuthController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerPage(Model model, Principal principal) {
-		model.addAttribute("user", new User());
 		return principal == null ? "auth/register" : "redirect:/";
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerProcess(Model model, User user) {
+	public String registerProcess(Model model, @ModelAttribute("user") User user) {
 		Role roleUser = roleRepository.findByName("ROLE_USER").get();
 		Set<Role> roles = new HashSet<>();
 		roles.add(roleUser);
@@ -50,16 +50,16 @@ public class AuthController {
 		user.setRoles(roles);
 		user.setPassword(encoder.encode(user.getPassword()));
 
-		System.out.println(user);
-
-		User userSave = userRepository.save(user);
-
-		return userSave != null ? "redirect:/register?success" : "redirect:/register?failed";
+		try {
+			userRepository.save(user);
+			return "redirect:/register?success";
+		} catch (Exception e) {
+			return "redirect:/register?failed";
+		}
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage(Model model, Principal principal) {
-		model.addAttribute("user", new User());
 		return principal == null ? "auth/login" : "redirect:/";
 	}
 
