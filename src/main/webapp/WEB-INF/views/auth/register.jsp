@@ -15,9 +15,8 @@
 							</a>
 						</div>
 
-						<form id="formAuthentication" onsubmit="return validateRegister()"
-							class="mb-3 needs-validation" action="/bakery/register/"
-							method="POST" novalidate>
+						<form id="formAuthentication" class="mb-3 needs-validation"
+							action="/bakery/register/" method="POST" novalidate>
 							<div class="mb-3">
 								<label for="fullName" class="form-label">Your name</label> <input
 									type="text" class="form-control" id="fullName" name="fullName"
@@ -33,8 +32,8 @@
 								<div class="input-group input-group-merge">
 									<input type="password" id="password" class="form-control"
 										name="password" placeholder="••••••••••"
-										aria-describedby="password" required /> <span
-										class="input-group-text cursor-pointer"><i
+										aria-describedby="password" required onblur="confirmPwBlur()" />
+									<span class="input-group-text cursor-pointer"><i
 										class="bx bx-hide"></i></span>
 								</div>
 							</div>
@@ -86,6 +85,8 @@
 
 		var checker = document.getElementById('terms-conditions');
 		var sendbtn = document.getElementById('sign-up');
+		var password = document.getElementById("password");
+		var confirmPassword = document.getElementById("confirm-password");
 
 		checker.onchange = function() {
 			if (confirmPwBlur())
@@ -93,15 +94,14 @@
 		}
 
 		function confirmPwBlur() {
-			var password = document.getElementById("password");
-			var confirmPassword = document.getElementById("confirm-password");
-			if (password.value !== confirmPassword.value) {
+			if (password.value !== confirmPassword.value
+					|| confirmPassword.value == "") {
+				password.classList.add("is-invalid")
 				confirmPassword.classList.add("is-invalid")
 				return false;
 			}
-			if (checker.checked) {
-				sendbtn.disabled = true;
-			}
+			sendbtn.disabled = !checker.checked;
+			password.classList.remove("is-invalid")
 			confirmPassword.classList.remove("is-invalid")
 			return true;
 		}
