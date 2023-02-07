@@ -16,7 +16,7 @@
 						</div>
 						<form id="formAuthentication" class="mb-3 needs-validation"
 							action="/bakery/j_spring_security_check" method="POST" novalidate>
-							<div class="mb-3">
+							<div class="mb-3 position-relative">
 								<label for="username" class="form-label">Username</label> <input
 									type="text" class="form-control" id="username" name="username"
 									placeholder="Enter your username" required />
@@ -36,13 +36,13 @@
 										class="bx bx-hide"></i></span>
 								</div>
 							</div>
-							<!-- <div class="mb-3">
+							<div class="mb-3">
 								<div class="form-check">
 									<input class="form-check-input" type="checkbox"
 										id="remember-me" /> <label class="form-check-label"
 										for="remember-me"> Remember Me </label>
 								</div>
-							</div> -->
+							</div>
 							<div class="mb-3">
 								<button class="btn btn-primary d-grid w-100" type="submit">Sign
 									in</button>
@@ -61,26 +61,13 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		(function() {
-			'use strict';
-			window.addEventListener('load',
-					function() {
-						// Fetch all the forms we want to apply custom Bootstrap validation styles to
-						var forms = document
-								.getElementsByClassName('needs-validation');
-						// Loop over them and prevent submission
-						var validation = Array.prototype.filter.call(forms,
-								function(form) {
-									form.addEventListener('submit', function(
-											event) {
-										if (form.checkValidity() === false) {
-											event.preventDefault();
-											event.stopPropagation();
-										}
-										form.classList.add('was-validated');
-									}, false);
-								});
-					}, false);
-		})();
+		var form = document.getElementById("formAuthentication");
+		form.addEventListener('submit', function(event) {
+			if (form.checkValidity() === false) {
+				event.preventDefault();
+				event.stopPropagation();
+			}
+			form.classList.add('was-validated');
+		}, false);
 	</script>
 </body>

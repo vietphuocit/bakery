@@ -15,8 +15,9 @@
 							</a>
 						</div>
 
-						<form id="formAuthentication" class="mb-3 needs-validation"
-							action="/bakery/register/" method="POST" novalidate>
+						<form id="formAuthentication" onsubmit="return validateRegister()"
+							class="mb-3 needs-validation" action="/bakery/register/"
+							method="POST" novalidate>
 							<div class="mb-3">
 								<label for="fullName" class="form-label">Your name</label> <input
 									type="text" class="form-control" id="fullName" name="fullName"
@@ -43,8 +44,8 @@
 								<div class="input-group input-group-merge">
 									<input type="password" id="confirm-password"
 										class="form-control" placeholder="••••••••••"
-										aria-describedby="password" required /> <span
-										class="input-group-text cursor-pointer"><i
+										aria-describedby="password" required onblur="confirmPwBlur()" />
+									<span class="input-group-text cursor-pointer"><i
 										class="bx bx-hide"></i></span>
 								</div>
 							</div>
@@ -52,15 +53,14 @@
 							<div class="mb-3">
 								<div class="form-check">
 									<input class="form-check-input" type="checkbox"
-										id="terms-conditions" name="terms"
-										required /> <label class="form-check-label"
-										for="terms-conditions"> I agree to <a href="#">privacy
-											policy & terms</a>
+										id="terms-conditions" name="terms" required /> <label
+										class="form-check-label" for="terms-conditions"> I
+										agree to <a href="#">privacy policy & terms</a>
 									</label>
 								</div>
 							</div>
 							<button type="submit" class="btn btn-primary d-grid w-100"
-								id="sign-up">Sign up</button>
+								id="sign-up" disabled>Sign up</button>
 						</form>
 
 						<p class="text-center">
@@ -75,26 +75,35 @@
 	</div>
 
 	<script type="text/javascript">
-		(function() {
-			'use strict';
-			window.addEventListener('load',
-					function() {
-						// Fetch all the forms we want to apply custom Bootstrap validation styles to
-						var forms = document
-								.getElementsByClassName('needs-validation');
-						// Loop over them and prevent submission
-						var validation = Array.prototype.filter.call(forms,
-								function(form) {
-									form.addEventListener('submit', function(
-											event) {
-										if (form.checkValidity() === false) {
-											event.preventDefault();
-											event.stopPropagation();
-										}
-										form.classList.add('was-validated');
-									}, false);
-								});
-					}, false);
-		})();
+		var form = document.getElementById("formAuthentication");
+		form.addEventListener('submit', function(event) {
+			if (form.checkValidity() === false) {
+				event.preventDefault();
+				event.stopPropagation();
+			}
+			form.classList.add('was-validated');
+		}, false);
+
+		var checker = document.getElementById('terms-conditions');
+		var sendbtn = document.getElementById('sign-up');
+
+		checker.onchange = function() {
+			if (confirmPwBlur())
+				sendbtn.disabled = !this.checked;
+		}
+
+		function confirmPwBlur() {
+			var password = document.getElementById("password");
+			var confirmPassword = document.getElementById("confirm-password");
+			if (password.value !== confirmPassword.value) {
+				confirmPassword.classList.add("is-invalid")
+				return false;
+			}
+			if (checker.checked) {
+				sendbtn.disabled = true;
+			}
+			confirmPassword.classList.remove("is-invalid")
+			return true;
+		}
 	</script>
 </body>
