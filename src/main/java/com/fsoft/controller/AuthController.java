@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.fsoft.model.Role;
-import com.fsoft.model.User;
+import com.fsoft.entity.Role;
+import com.fsoft.entity.User;
 import com.fsoft.repository.RoleRepository;
 import com.fsoft.repository.UserRepository;
 

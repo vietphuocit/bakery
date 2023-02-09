@@ -1,4 +1,4 @@
-package com.fsoft.model;
+package com.fsoft.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "order_status")
+public class OrderStatus {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,11 +18,10 @@ public class Category {
 	@Column(columnDefinition = "nvarchar(255)")
 	private String name;
 
-	public Category() {
+	public OrderStatus() {
 	}
 
-	public Category(String name) {
-		super();
+	public OrderStatus(String name) {
 		this.name = name;
 	}
 

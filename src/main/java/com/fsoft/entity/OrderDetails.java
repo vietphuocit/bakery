@@ -1,4 +1,4 @@
-package com.fsoft.model;
+package com.fsoft.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -23,11 +24,12 @@ public class OrderDetails {
 	private Long totalMoney;
 
 	@ManyToOne
-    @JoinColumn(name = "order_id")
+	@JoinColumn(name = "order_id")
 	private Order order;
 
 	@ManyToOne
-    @JoinColumn(name = "product_id")
+	@JoinColumns({ @JoinColumn(name = "product_id", referencedColumnName = "id"),
+			@JoinColumn(name = "size", referencedColumnName = "size") })
 	private Product product;
 
 	public OrderDetails() {

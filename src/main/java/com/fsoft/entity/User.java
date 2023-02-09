@@ -1,4 +1,4 @@
-package com.fsoft.model;
+package com.fsoft.entity;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package com.fsoft.model;
+package com.fsoft.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,21 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "order_status")
-public class OrderStatus {
+@Table(name = "payment_method")
+public class PaymentMethod {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(columnDefinition = "nvarchar(255)")
-	private String name;
+	private String type;
 
-	public OrderStatus() {
+	public PaymentMethod() {
 	}
 
-	public OrderStatus(String name) {
-		this.name = name;
+	public PaymentMethod(String type) {
+		this.type = type;
 	}
 
 	public Long getId() {
@@ -33,12 +33,12 @@ public class OrderStatus {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getType() {
+		return type;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

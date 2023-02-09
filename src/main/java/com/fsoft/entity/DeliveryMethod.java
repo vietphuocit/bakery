@@ -1,4 +1,4 @@
-package com.fsoft.model;
+package com.fsoft.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "payment_method")
-public class PaymentMethod {
+@Table(name = "delivery_method")
+public class DeliveryMethod {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,10 +18,10 @@ public class PaymentMethod {
 	@Column(columnDefinition = "nvarchar(255)")
 	private String type;
 
-	public PaymentMethod() {
+	public DeliveryMethod() {
 	}
 
-	public PaymentMethod(String type) {
+	public DeliveryMethod(String type) {
 		this.type = type;
 	}
 

@@ -1,4 +1,4 @@
-package com.fsoft.model;
+package com.fsoft.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,21 +8,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "delivery_method")
-public class DeliveryMethod {
+@Table(name = "category")
+public class Category {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(columnDefinition = "nvarchar(255)")
-	private String type;
+	private String name;
 
-	public DeliveryMethod() {
+	public Category() {
 	}
 
-	public DeliveryMethod(String type) {
-		this.type = type;
+	public Category(String name) {
+		super();
+		this.name = name;
 	}
 
 	public Long getId() {
@@ -33,12 +34,12 @@ public class DeliveryMethod {
 		this.id = id;
 	}
 
-	public String getType() {
-		return type;
+	public String getName() {
+		return name;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
