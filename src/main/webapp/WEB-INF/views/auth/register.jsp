@@ -96,6 +96,7 @@
 		function confirmPwBlur() {
 			if (password.value !== confirmPassword.value
 					|| confirmPassword.value == "") {
+				sendbtn.disabled = true;
 				password.classList.add("is-invalid")
 				confirmPassword.classList.add("is-invalid")
 				return false;

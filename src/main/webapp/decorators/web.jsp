@@ -1,28 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Trang chủ</title>
+<title>Sneat</title>
 
-<!-- Bootstrap core CSS -->
 <link
-	href="<c:url value='/template/web/vendor/bootstrap/css/bootstrap.min.css'/>"
-	rel="stylesheet" type="text/css">
-
-<!-- Custom styles for this template -->
-<link href="<c:url value='/template/web/css/small-business.css'/>"
-	rel="stylesheet" type="text/css">
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-
-	<!-- Bootstrap core JavaScript -->
-	<script
-		src="<c:url value='/template/web/vendor/jquery/jquery.min.js'/>"></script>
-	<script
-		src="<c:url value='/template/web/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
+	<dec:body />
 </body>
 </html>

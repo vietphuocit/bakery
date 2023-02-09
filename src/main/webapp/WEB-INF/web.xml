@@ -8,6 +8,7 @@
 	<display-name>Spring MVC Security</display-name>
 
 	<!-- Loads config file -->
+	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
@@ -17,6 +18,7 @@
 	</context-param>
 
 	<!-- Spring MVC -->
+	
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -28,6 +30,18 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+	<!-- sitemesh filter -->
+	
+	<filter>
+		<filter-name>sitemesh</filter-name>
+		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>sitemesh</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
 
 	<!-- Spring Security Filter -->
 
@@ -52,6 +66,7 @@
 	</listener>
 
 	<!-- -->
+
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -72,20 +87,12 @@
 		<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
 
-	<!-- sitemesh filter -->
-	<filter>
-		<filter-name>sitemesh</filter-name>
-		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
-	</filter>
-	<filter-mapping>
-		<filter-name>sitemesh</filter-name>
-		<url-pattern>/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-		<dispatcher>FORWARD</dispatcher>
-	</filter-mapping>
-
 	<error-page>
 		<error-code>404</error-code>
 		<location>/WEB-INF/views/error/404_not_found.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/WEB-INF/views/error/403_forbidden.jsp</location>
 	</error-page>
 </web-app>

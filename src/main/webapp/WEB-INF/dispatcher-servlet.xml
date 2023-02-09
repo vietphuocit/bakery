@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href=""?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -13,8 +15,9 @@
 	<context:component-scan
 		base-package="com.fsoft.controller" />
 	<mvc:annotation-driven />
-	
-	<mvc:resources mapping="/template/**" location="/template/" />
+
+	<mvc:resources mapping="/template/**"
+		location="/template/" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

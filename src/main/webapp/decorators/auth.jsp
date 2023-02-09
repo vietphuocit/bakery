@@ -1,4 +1,3 @@
-<%@page import="org.springframework.ui.Model"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
@@ -58,7 +57,6 @@
 <script src='<core:url value="/template/assets/js/config.js"/>'></script>
 </head>
 <body>
-	<%@ include file="/common/admin/header.jsp"%>
 	<dec:body />
 	<div id="toast-auth"
 		class="bs-toast toast fade m-4 toast-placement-ex top-0 end-0"
