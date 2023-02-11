@@ -15,7 +15,7 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(columnDefinition = "nvarchar(255)")
+	@Column(columnDefinition = "nvarchar(255)", unique = true)
 	private String name;
 
 	public Category() {
@@ -40,6 +40,11 @@ public class Category {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + "]";
 	}
 
 }

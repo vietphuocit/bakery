@@ -36,12 +36,12 @@ public class AuthController {
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	@RequestMapping(value = "register", method = RequestMethod.GET)
 	public String registerPage(Model model, Principal principal) {
 		return principal == null ? "auth/register" : "redirect:/";
 	}
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public String registerProcess(Model model, @ModelAttribute("user") User user) {
 		Role roleUser = roleRepository.findByName("ROLE_USER").get();
 		Set<Role> roles = new HashSet<>();
@@ -63,7 +63,7 @@ public class AuthController {
 		return principal == null ? "auth/login" : "redirect:/";
 	}
 
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logoutPage(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null) {
@@ -72,8 +72,9 @@ public class AuthController {
 		return "redirect:/login";
 	}
 
-	@RequestMapping(value = "/access-denied", method = RequestMethod.GET)
-	public String accessDenied() {
-		return "error/403_forbidden";
+	@RequestMapping(value = { "admin" }, method = RequestMethod.GET)
+	public String dashboardPage() {
+
+		return "admin/dashboard";
 	}
 }
