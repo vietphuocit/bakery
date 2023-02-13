@@ -15,6 +15,8 @@ import com.fsoft.entity.Category;
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 	List<Category> findAll(Sort sort);
 
+	Category findById(Long id);
+
 	@Transactional
 	@Modifying
 	@Query("UPDATE Category c SET c.name = :name WHERE c.id = :id")

@@ -20,9 +20,9 @@
 			<table class="table">
 				<thead>
 					<tr>
-						<th class="col-md-2 text-center">ID</th>
-						<th class="col-md-8 text-center">Name</th>
-						<th class="col-md-2 text-center">Actions</th>
+						<th class="col-md-1 text-center">ID</th>
+						<th class="col-md-10 text-center">Name</th>
+						<th class="col-md-1 text-center">Actions</th>
 					</tr>
 				</thead>
 				<tbody class="table-border-bottom-0">
@@ -56,7 +56,6 @@
 	</div>
 	<!--/ Basic Bootstrap Table -->
 </div>
-
 
 <!-- Modal Add -->
 <div class="modal fade" id="addCategory" tabindex="-1"
