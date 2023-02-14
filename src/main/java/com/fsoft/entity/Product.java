@@ -51,6 +51,19 @@ public class Product {
 	public Product() {
 	}
 
+	public Product(PrimaryKeyProduct primaryKeyProduct, String name, int description, int price, int quantity,
+			int discount, String imageSource, Category category) {
+		super();
+		this.primaryKeyProduct = primaryKeyProduct;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.quantity = quantity;
+		this.discount = discount;
+		this.imageSource = imageSource;
+		this.category = category;
+	}
+
 	public PrimaryKeyProduct getPrimaryKeyProduct() {
 		return primaryKeyProduct;
 	}

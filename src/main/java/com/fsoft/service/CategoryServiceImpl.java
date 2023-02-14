@@ -37,7 +37,7 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public boolean updateCategoryById(Long id, String name) {
-		if (categoryRepository.findById(id) == null)
+		if (categoryRepository.findOne(id) == null)
 			return false;
 
 		categoryRepository.updateNameById(id, name);
@@ -46,7 +46,7 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public boolean deleteCategoryById(Long id) {
-		if (categoryRepository.findById(id) == null)
+		if (categoryRepository.findOne(id) == null)
 			return false;
 
 		categoryRepository.delete(id);

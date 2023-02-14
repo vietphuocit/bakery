@@ -8,7 +8,7 @@
 	<display-name>Spring MVC Security</display-name>
 
 	<!-- Loads config file -->
-	
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
@@ -18,7 +18,7 @@
 	</context-param>
 
 	<!-- Spring MVC -->
-	
+
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -31,7 +31,7 @@
 	</servlet-mapping>
 
 	<!-- sitemesh filter -->
-	
+
 	<filter>
 		<filter-name>sitemesh</filter-name>
 		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>

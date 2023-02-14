@@ -1,9 +1,6 @@
 package com.fsoft.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
-import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fsoft.entity.Category;
-import com.fsoft.repository.CategoryRepository;
 import com.fsoft.service.CategoryService;
 import com.fsoft.utils.ControllerUtils;
 
