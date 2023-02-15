@@ -3,13 +3,11 @@ package com.fsoft.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
-import org.springframework.data.domain.Sort.Order;
 import org.springframework.stereotype.Service;
 
 import com.fsoft.entity.Category;
 import com.fsoft.repository.CategoryRepository;
+import com.fsoft.repository.ProductRepository;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -17,10 +15,12 @@ public class CategoryServiceImpl implements CategoryService {
 	@Autowired
 	private CategoryRepository categoryRepository;
 
+	@Autowired
+	private ProductRepository productRepository;
+
 	@Override
 	public List<Category> findAllOrderASCById() {
-		Sort sort = new Sort(new Order(Direction.ASC, "id"));
-		return categoryRepository.findAll(sort);
+		return categoryRepository.findAllByOrderByIdAsc();
 	}
 
 	@Override
@@ -40,13 +40,21 @@ public class CategoryServiceImpl implements CategoryService {
 		if (categoryRepository.findOne(id) == null)
 			return false;
 
-		categoryRepository.updateNameById(id, name);
+		if (categoryRepository.findByName(name) != null)
+			return false;
+
+		Category category = categoryRepository.findOne(id);
+		category.setName(name);
+		categoryRepository.save(category);
 		return true;
 	}
 
 	@Override
 	public boolean deleteCategoryById(Long id) {
 		if (categoryRepository.findOne(id) == null)
+			return false;
+
+		if (!productRepository.findByCategory_id(id).isEmpty())
 			return false;
 
 		categoryRepository.delete(id);
