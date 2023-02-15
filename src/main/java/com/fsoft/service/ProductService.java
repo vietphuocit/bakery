@@ -7,7 +7,11 @@ import com.fsoft.entity.Product;
 
 public interface ProductService {
 
-	public List<Product> findAllOrderASCById();
+	List<Product> findAllOrderASCById();
 
-	public boolean createProduct(ProductRequest productRequest);
+	boolean createProduct(ProductRequest productRequest);
+
+	boolean updateProduct(Long id, ProductRequest productRequest);
+
+	boolean deleteProduct(Long id, int size);
 }

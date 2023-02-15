@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fsoft.dto.request.ProductRequest;
-import com.fsoft.entity.Category;
 import com.fsoft.entity.GeneratedIdProduct;
 import com.fsoft.entity.PrimaryKeyProduct;
 import com.fsoft.entity.Product;
@@ -38,44 +37,78 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> findAllOrderASCById() {
-		return productRepository.findAllSortByCity();
+		return productRepository.findAllByOrderByPrimaryKeyProductAsc();
 	}
 
 	@Override
 	public boolean createProduct(ProductRequest productRequest) {
-		Long id = productRepository.findIdByName(productRequest.getName());
+//		System.out.println(productRequest.getName());
+//		Product product = productRepository.findByName(productRequest.getName());
+//		Long id = (product != null) ? product.getPrimaryKeyProduct().getId() : null;
+//
+//		PrimaryKeyProduct pkProduct = (id == null)
+//				? new PrimaryKeyProduct(getGeneratedIdProduct(), productRequest.getSize())
+//				: new PrimaryKeyProduct(id, productRequest.getSize());
+//
+//		Category category = categoryRepository.findOne(productRequest.getCategoryId());
+//		if (category == null)
+//			return false;
+//
+//		try {
+//			String fileName = saveImage(productRequest.getImage());
+//			productRepository.save(new Product(pkProduct, productRequest.getName(), productRequest.getDescription(),
+//					productRequest.getPrice(), productRequest.getQuantity(), productRequest.getDiscount(), fileName,
+//					category));
+//			return true;
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//			return false;
+//		}
+		
+		return false;
+	}
 
-		if (id != null)
-			System.out.println(id);
+	@Override
+	public boolean updateProduct(Long id, ProductRequest productRequest) {
+//		List<Product> products = productRepository.findAllByName(productRequest.getName());
+//
+//		for (Product product : products) {
+//			if (product.getPrimaryKeyProduct().getSize() == productRequest.getSize()) {
+//				product.setCategory(categoryRepository.findOne(productRequest.getCategoryId()));
+//				product.setDescription(productRequest.getDescription());
+//				product.setDiscount(productRequest.getDiscount());
+//				product.setQuantity(productRequest.getQuantity());
+//
+//				String fileName = saveImage(productRequest.getImage());
+//				product.setImage(fileName);
+//
+//				productRepository.save(product);
+//				return true;
+//			}
+//		}
 
-		PrimaryKeyProduct pkProduct = (id == null)
-				? new PrimaryKeyProduct(getGeneratedIdProduct(), productRequest.getSize())
-				: new PrimaryKeyProduct(id, productRequest.getSize());
+		return false;
+	}
 
-		Category category = categoryRepository.findOne(productRequest.getCategoryId());
-		if (category == null)
-			return false;
-
-		try {
-			String fileName = saveImage(productRequest.getImage());
-			productRepository.save(new Product(pkProduct, productRequest.getName(), productRequest.getDescription(),
-					productRequest.getPrice(), productRequest.getQuantity(), productRequest.getDiscount(), fileName,
-					category));
+	@Override
+	public boolean deleteProduct(Long id, int size) {
+		Product product = productRepository.findByPrimaryKeyProduct(new PrimaryKeyProduct(id, size));
+		if (product != null) {
+			productRepository.delete(product);
 			return true;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return false;
 		}
+
+		return false;
 	}
 
 	public Long getGeneratedIdProduct() {
 		List<GeneratedIdProduct> ids = generatedIdProductRepository.findAll();
-		if (ids.isEmpty()) {
-			generatedIdProductRepository.save(new GeneratedIdProduct());
-			return (long) 0;
-		} else {
+		if (ids != null && !ids.isEmpty()) {
 			generatedIdProductRepository.updateCount();
 			return ids.get(0).getCount();
+		} else {
+			generatedIdProductRepository.save(new GeneratedIdProduct((long) 0));
+			return (long) 0;
 		}
 	}
 
@@ -99,5 +132,4 @@ public class ProductServiceImpl implements ProductService {
 
 		return fileName;
 	}
-
 }
