@@ -23,7 +23,7 @@ public class Product {
 	private String name;
 
 	@Column(columnDefinition = "nvarchar(255)")
-	private int description;
+	private String description;
 
 	private int price;
 
@@ -31,8 +31,7 @@ public class Product {
 
 	private int discount;
 
-	@Column(name = "img_src")
-	private String imageSource;
+	private String image;
 
 	@Column(name = "created_at")
 	@CreationTimestamp
@@ -51,8 +50,8 @@ public class Product {
 	public Product() {
 	}
 
-	public Product(PrimaryKeyProduct primaryKeyProduct, String name, int description, int price, int quantity,
-			int discount, String imageSource, Category category) {
+	public Product(PrimaryKeyProduct primaryKeyProduct, String name, String description, int price, int quantity,
+			int discount, String image, Category category) {
 		super();
 		this.primaryKeyProduct = primaryKeyProduct;
 		this.name = name;
@@ -60,7 +59,7 @@ public class Product {
 		this.price = price;
 		this.quantity = quantity;
 		this.discount = discount;
-		this.imageSource = imageSource;
+		this.image = image;
 		this.category = category;
 	}
 
@@ -96,12 +95,12 @@ public class Product {
 		this.discount = discount;
 	}
 
-	public String getImageSource() {
-		return imageSource;
+	public String getImage() {
+		return image;
 	}
 
-	public void setImageSource(String imageSource) {
-		this.imageSource = imageSource;
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public Category getCategory() {
@@ -120,11 +119,11 @@ public class Product {
 		this.name = name;
 	}
 
-	public int getDescription() {
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(int description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 

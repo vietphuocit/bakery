@@ -19,6 +19,8 @@
 	<mvc:resources mapping="/template/**"
 		location="/template/" />
 
+	<mvc:resources mapping="/uploads/**" location="/uploads/" />
+
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />

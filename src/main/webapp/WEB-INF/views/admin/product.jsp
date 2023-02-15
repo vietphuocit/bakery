@@ -2,6 +2,7 @@
 	pageEncoding='UTF-8'%>
 <%@ include file='/common/taglib.jsp'%>
 <core:set var='categories' value='${ categories }' />
+<core:set var='products' value='${ products }' />
 <div class='container-xxl flex-grow-1 container-p-y'>
 	<h4 class='fw-bold py-3 mb-4'>
 		<span class='text-muted fw-light'>Quản Lý /</span> Sản Phẩm
@@ -20,7 +21,8 @@
 				<thead>
 					<tr>
 						<th class='col-md-1 text-center'>ID</th>
-						<th class='col-md-7 text-center'>Tên sản phẩm</th>
+						<th class='col-md-5 text-center'>Tên sản phẩm</th>
+						<th class='col-md-2 text-center'>Ảnh</th>
 						<th class='col-md-1 text-center'>Kích thước</th>
 						<th class='col-md-1 text-center'>Giá</th>
 						<th class='col-md-1 text-center'>Số lượng</th>
@@ -28,27 +30,32 @@
 					</tr>
 				</thead>
 				<tbody class='table-border-bottom-0'>
-					<tr>
-						<td class='text-center'>1</td>
-						<td class='text-center'>Bánh kem</td>
-						<td class='text-center'>20</td>
-						<td class='text-center'>180000</td>
-						<td class='text-center'>10</td>
-						<td class='text-center'>
-							<div class='dropdown'>
-								<button type='button' class='btn p-0 dropdown-toggle hide-arrow'
-									data-bs-toggle='dropdown'>
-									<i class='bx bx-dots-vertical-rounded'></i>
-								</button>
-								<div class='dropdown-menu'>
-									<a class='dropdown-item' href='javascript:void(0);'><i
-										class='bx bx-edit-alt me-1'></i> Edit</a> <a class='dropdown-item'
-										href='javascript:void(0);'><i class='bx bx-trash me-1'></i>
-										Delete</a>
+					<core:forEach var='product' items='${ products }'>
+						<tr>
+							<td class='text-center'>${ product.primaryKeyProduct.id }</td>
+							<td class='text-center'>${ product.name }</td>
+							<td class='text-center'><img class="img-thumbnail"
+								src='<core:url value="/uploads/${ product.image }" />' /></td>
+							<td class='text-center'>${ product.primaryKeyProduct.size }</td>
+							<td class='text-center'>${ product.price }</td>
+							<td class='text-center'>${ product.quantity }</td>
+							<td class='text-center'>
+								<div class='dropdown'>
+									<button type='button'
+										class='btn p-0 dropdown-toggle hide-arrow'
+										data-bs-toggle='dropdown'>
+										<i class='bx bx-dots-vertical-rounded'></i>
+									</button>
+									<div class='dropdown-menu'>
+										<a class='dropdown-item' href='javascript:void(0);'><i
+											class='bx bx-edit-alt me-1'></i> Edit</a> <a
+											class='dropdown-item' href='javascript:void(0);'><i
+											class='bx bx-trash me-1'></i> Delete</a>
+									</div>
 								</div>
-							</div>
-						</td>
-					</tr>
+							</td>
+						</tr>
+					</core:forEach>
 				</tbody>
 			</table>
 		</div>

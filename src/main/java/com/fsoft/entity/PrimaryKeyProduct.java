@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Embeddable;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 
 @Embeddable
 public class PrimaryKeyProduct implements Serializable {
@@ -13,8 +11,7 @@ public class PrimaryKeyProduct implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Long id;
 
 	private int size;
