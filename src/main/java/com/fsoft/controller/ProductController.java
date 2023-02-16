@@ -1,5 +1,7 @@
 package com.fsoft.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.fsoft.dto.request.ProductRequest;
+import com.fsoft.repository.ProductRepository;
 import com.fsoft.service.CategoryService;
 import com.fsoft.service.ProductService;
 import com.fsoft.utils.ControllerUtils;
@@ -71,5 +74,27 @@ public class ProductController {
 		model.addAttribute("products", productService.findAllOrderASCById());
 		model.addAttribute("categories", categoryService.findAllOrderASCById());
 		return "admin/product";
+	}
+
+	@RequestMapping(value = "/product", method = RequestMethod.GET)
+	public String pageProduct(Model model) {
+		model.addAttribute("listProduct", productService.findAllOrderASCById());
+		model.addAttribute("listCategory", categoryService.findAllOrderASCById());
+
+		return "auth/product";
+	}
+
+	@RequestMapping(value = "/category/{id}", method = RequestMethod.GET)
+	public String pageCategory(Model model, @PathVariable("id") Long id) {
+		model.addAttribute("filterProduct", productService.findByCategory(id));
+		model.addAttribute("listCategory", categoryService.findAllOrderASCById());
+		return "auth/filterProduct";
+	}
+
+	@RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
+	public String pageProductDetail(Model model, @PathVariable("id") Long id) {
+		model.addAttribute("productDetail", productService.findByPrimaryKeyProductId(id));
+		return "auth/productDetail";
+
 	}
 }

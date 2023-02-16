@@ -13,6 +13,8 @@
 				href='<core:url value="/user" />'>User</a></li>
 			<li class="nav-item p-2"><a class="nav-link"
 				href='<core:url value="/admin" />'>Admin</a></li>
+			<li class="nav-item p-2"><a class="nav-link"
+				href='<core:url value="/product" />'>Product</a></li>
 		</ul>
 		<div class="d-flex flex-wrap justify-content-end align-items-center">
 			<form class="me-2 mb-0">

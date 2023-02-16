@@ -111,6 +111,15 @@ public class ProductServiceImpl implements ProductService {
 		return false;
 	}
 
+	public List<Product> findByCategory(Long id) {
+		return productRepository.findByCategory_id(id);
+	}
+
+	@Override
+	public List<Product> findByPrimaryKeyProductId(Long id) {
+		return productRepository.findByPrimaryKeyProduct_id(id);
+	}
+
 	public Long getGeneratedIdProduct() {
 		List<GeneratedIdProduct> ids = generatedIdProductRepository.findAll();
 		if (ids != null && !ids.isEmpty()) {
