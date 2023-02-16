@@ -76,7 +76,7 @@
 				<button type='button' class='btn-close' data-bs-dismiss='modal'
 					aria-label='Close'></button>
 			</div>
-			<form id='formProduct' class='modal-body'
+			<form id='formAddProduct' class='modal-body'
 				action='<core:url value='/admin/product' />' method='POST'
 				enctype='multipart/form-data'>
 				<div class='row'>
@@ -132,8 +132,9 @@
 				<div class='row'>
 					<div class='col mb-3'>
 						<label for='description' class='form-label'>Mô tả</label>
-						<textarea form='formProduct' id='description' name='description'
-							class='form-control' placeholder='Mô tả về sản phẩm'></textarea>
+						<textarea form='formAddProduct' id='description'
+							name='description' class='form-control'
+							placeholder='Mô tả về sản phẩm'></textarea>
 					</div>
 				</div>
 				<div class='d-flex justify-content-end'>
@@ -158,8 +159,10 @@
 					<button type='button' class='btn-close' data-bs-dismiss='modal'
 						aria-label='Close'></button>
 				</div>
-				<form id='formProduct' class='modal-body'
-					action='<core:url value='/admin/product/${ product.primaryKeyProduct.id }/${ product.primaryKeyProduct.size }' />'
+				<form
+					id='formEditProduct${ product.primaryKeyProduct.id }-${ product.primaryKeyProduct.size }'
+					class='modal-body'
+					action='<core:url value='/admin/product/${ product.primaryKeyProduct.id }' />'
 					method='POST' enctype='multipart/form-data'>
 					<div class='row'>
 						<div class='col mb-3'>
@@ -188,11 +191,11 @@
 						</div>
 					</div>
 					<div class='row'>
-						<div class='col mb-3'>
-							<label for='size' class='form-label'>Kích thước (cm)</label> <input
-								type='number' id='size' name='size' class='form-control'
-								placeholder='Nhập kích thước'
-								value=${ product.primaryKeyProduct.size } disabled />
+						<div class='col mb-3 d-none'>
+							<label for='size' class='form-label'>Kích thước
+								(cm)</label> <input type='number' id='size' name='size'
+								class='form-control' placeholder='Nhập kích thước'
+								value=${ product.primaryKeyProduct.size } />
 						</div>
 						<div class='col mb-3'>
 							<label for='price' class='form-label'>Giá</label> <input
@@ -215,8 +218,10 @@
 					<div class='row'>
 						<div class='col mb-3'>
 							<label for='description' class='form-label'>Mô tả</label>
-							<textarea form='formProduct' id='description' name='description'
-								class='form-control' placeholder='Mô tả về sản phẩm'>${ product.description }</textarea>
+							<textarea
+								form='formEditProduct${ product.primaryKeyProduct.id }-${ product.primaryKeyProduct.size }'
+								id='description' name='description' class='form-control'
+								placeholder='Mô tả về sản phẩm'>${ product.description }</textarea>
 						</div>
 					</div>
 					<div class='d-flex justify-content-end'>

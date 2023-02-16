@@ -14,8 +14,9 @@
 
 	<context:component-scan
 		base-package="com.fsoft.controller" />
-	<mvc:annotation-driven />
 
+	<mvc:annotation-driven />
+	
 	<mvc:resources mapping="/template/**"
 		location="/template/" />
 
