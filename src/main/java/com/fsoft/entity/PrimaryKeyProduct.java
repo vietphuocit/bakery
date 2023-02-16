@@ -11,7 +11,7 @@ public class PrimaryKeyProduct implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private Long id;
 
 	private int size;
@@ -62,6 +62,11 @@ public class PrimaryKeyProduct implements Serializable {
 			return false;
 		PrimaryKeyProduct other = (PrimaryKeyProduct) obj;
 		return Objects.equals(id, other.id) && size == other.size;
+	}
+
+	@Override
+	public String toString() {
+		return "PrimaryKeyProduct [id=" + id + ", size=" + size + "]";
 	}
 
 }

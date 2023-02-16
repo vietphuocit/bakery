@@ -136,13 +136,4 @@ public class User {
 		this.deleted = deleted;
 	}
 
-	@Override
-	public String toString() {
-		return "User [fullName=" + fullName + ", email=" + email + ", phoneNumber=" + phoneNumber + ", address="
-				+ address + ", username=" + username + ", password=" + password + ", roles=" + roles + ", createdAt="
-				+ createdAt + ", modifiedAt=" + modifiedAt + ", deleted=" + deleted + "]";
-	}
-	
-	
-
 }

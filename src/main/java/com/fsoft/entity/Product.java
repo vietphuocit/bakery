@@ -151,4 +151,11 @@ public class Product {
 		this.deleted = deleted;
 	}
 
+	@Override
+	public String toString() {
+		return "Product [primaryKeyProduct=" + primaryKeyProduct + ", name=" + name + ", description=" + description
+				+ ", price=" + price + ", quantity=" + quantity + ", discount=" + discount + ", image=" + image
+				+ ", category=" + category + "]";
+	}
+
 }
