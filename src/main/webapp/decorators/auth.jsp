@@ -11,7 +11,7 @@
 
 <!-- Favicon -->
 <link rel='icon' type='image/x-icon'
-	href='<core:url value='/template/assets/img/favicon/favicon.ico' />' />
+	href='https://cdn-icons-png.flaticon.com/512/9480/9480880.png' />
 <!-- Fonts -->
 <link rel='preconnect' href='https://fonts.googleapis.com' />
 <!-- <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin /> -->
@@ -31,7 +31,7 @@
 	href='<core:url value='/template/assets/vendor/css/theme-default.css' />'
 	class='template-customizer-theme-css' />
 <link rel='stylesheet'
-	href='<core:url value='/template/assets/css/demo.css'  />' />
+	href='<core:url value='/template/assets/css/admin.css'  />' />
 
 <!-- Vendors CSS -->
 <link rel='stylesheet'
@@ -121,7 +121,7 @@
 
 	<!-- Place this tag in your head or just before your close body tag. -->
 	<!-- <script async defer src='https://buttons.github.io/buttons.js'></script> -->
-	
+
 	<!-- Bootstrap JS -->
 	<!-- <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css' rel='stylesheet'> -->
 	<script

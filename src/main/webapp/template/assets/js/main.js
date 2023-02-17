@@ -1,118 +1,235 @@
-/**
- * Main
- */
+/*  ---------------------------------------------------
+    Theme Name: Cake
+    Description: Cake e-commerce tamplate
+    Author: Colorib
+    Author URI: https://www.colorib.com/
+    Version: 1.0
+    Created: Colorib
+---------------------------------------------------------  */
 
 'use strict';
 
-let menu, animate;
+(function ($) {
 
-(function () {
-  // Initialize menu
-  //-----------------
-
-  let layoutMenuEl = document.querySelectorAll('#layout-menu');
-  layoutMenuEl.forEach(function (element) {
-    menu = new Menu(element, {
-      orientation: 'vertical',
-      closeChildren: false
+    /*------------------
+        Preloader
+    --------------------*/
+    $(window).on('load', function () {
+        $(".loader").fadeOut();
+        $("#preloder").delay(200).fadeOut("slow");
     });
-    // Change parameter to true if you want scroll animation
-    window.Helpers.scrollToActive((animate = false));
-    window.Helpers.mainMenu = menu;
-  });
 
-  // Initialize menu togglers and bind click on each
-  let menuToggler = document.querySelectorAll('.layout-menu-toggle');
-  menuToggler.forEach(item => {
-    item.addEventListener('click', event => {
-      event.preventDefault();
-      window.Helpers.toggleCollapsed();
+    /*------------------
+        Background Set
+    --------------------*/
+    $('.set-bg').each(function () {
+        var bg = $(this).data('setbg');
+        $(this).css('background-image', 'url(' + bg + ')');
     });
-  });
 
-  // Display menu toggle (layout-menu-toggle) on hover with delay
-  let delay = function (elem, callback) {
-    let timeout = null;
-    elem.onmouseenter = function () {
-      // Set timeout to be a timer which will invoke callback after 300ms (not for small screen)
-      if (!Helpers.isSmallScreen()) {
-        timeout = setTimeout(callback, 300);
-      } else {
-        timeout = setTimeout(callback, 0);
-      }
-    };
-
-    elem.onmouseleave = function () {
-      // Clear any timers set to timeout
-      document.querySelector('.layout-menu-toggle').classList.remove('d-block');
-      clearTimeout(timeout);
-    };
-  };
-  if (document.getElementById('layout-menu')) {
-    delay(document.getElementById('layout-menu'), function () {
-      // not for small screen
-      if (!Helpers.isSmallScreen()) {
-        document.querySelector('.layout-menu-toggle').classList.add('d-block');
-      }
+    //Search Switch
+    $('.search-switch').on('click', function () {
+        $('.search-model').fadeIn(400);
     });
-  }
 
-  // Display in main menu when menu scrolls
-  let menuInnerContainer = document.getElementsByClassName('menu-inner'),
-    menuInnerShadow = document.getElementsByClassName('menu-inner-shadow')[0];
-  if (menuInnerContainer.length > 0 && menuInnerShadow) {
-    menuInnerContainer[0].addEventListener('ps-scroll-y', function () {
-      if (this.querySelector('.ps__thumb-y').offsetTop) {
-        menuInnerShadow.style.display = 'block';
-      } else {
-        menuInnerShadow.style.display = 'none';
-      }
+    $('.search-close-switch').on('click', function () {
+        $('.search-model').fadeOut(400, function () {
+            $('#search-input').val('');
+        });
     });
-  }
 
-  // Init helpers & misc
-  // --------------------
+    //Canvas Menu
+    $(".canvas__open").on('click', function () {
+        $(".offcanvas-menu-wrapper").addClass("active");
+        $(".offcanvas-menu-overlay").addClass("active");
+    });
 
-  // Init BS Tooltip
-  const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-  tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl);
-  });
+    $(".offcanvas-menu-overlay").on('click', function () {
+        $(".offcanvas-menu-wrapper").removeClass("active");
+        $(".offcanvas-menu-overlay").removeClass("active");
+    });
 
-  // Accordion active class
-  const accordionActiveFunction = function (e) {
-    if (e.type == 'show.bs.collapse' || e.type == 'show.bs.collapse') {
-      e.target.closest('.accordion-item').classList.add('active');
-    } else {
-      e.target.closest('.accordion-item').classList.remove('active');
-    }
-  };
 
-  const accordionTriggerList = [].slice.call(document.querySelectorAll('.accordion'));
-  const accordionList = accordionTriggerList.map(function (accordionTriggerEl) {
-    accordionTriggerEl.addEventListener('show.bs.collapse', accordionActiveFunction);
-    accordionTriggerEl.addEventListener('hide.bs.collapse', accordionActiveFunction);
-  });
+    /*------------------
+		Navigation
+	--------------------*/
+    $(".mobile-menu").slicknav({
+        prependTo: '#mobile-menu-wrap',
+        allowParentLinks: true
+    });
 
-  // Auto update layout based on screen size
-  window.Helpers.setAutoUpdate(true);
+    /*-----------------------
+        Hero Slider
+    ------------------------*/
+    $(".hero__slider").owlCarousel({
+        loop: true,
+        margin: 0,
+        items: 1,
+        dots: false,
+        nav: true,
+        navText: ["<i class='fa fa-angle-left'><i/>", "<i class='fa fa-angle-right'><i/>"],
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        smartSpeed: 1200,
+        autoHeight: false,
+        autoplay: false
+    });
 
-  // Toggle Password Visibility
-  window.Helpers.initPasswordToggle();
+    /*--------------------------
+        Categories Slider
+    ----------------------------*/
+    $(".categories__slider").owlCarousel({
+        loop: true,
+        margin: 22,
+        items: 5,
+        dots: false,
+        nav: true,
+        navText: ["<span class='arrow_carrot-left'><span/>", "<span class='arrow_carrot-right'><span/>"],
+        smartSpeed: 1200,
+        autoHeight: false,
+        autoplay: false,
+        responsive: {
+            0: {
+                items: 1,
+                margin: 0
+            },
+            480: {
+                items: 2
+            },
+            768: {
+                items: 3
+            },
+            992: {
+                items: 4
+            },
+            1200: {
+                items: 5
+            }
+        }
+    });
 
-  // Speech To Text
-  window.Helpers.initSpeechToText();
+    /*-----------------------------
+        Testimonial Slider
+    -------------------------------*/
+    $(".testimonial__slider").owlCarousel({
+        loop: true,
+        margin: 0,
+        items: 2,
+        dots: true,
+        smartSpeed: 1200,
+        autoHeight: false,
+        autoplay: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            }
+        }
+    });
 
-  // Manage menu expanded/collapsed with templateCustomizer & local storage
-  //------------------------------------------------------------------
+    /*---------------------------------
+        Related Products Slider
+    ----------------------------------*/
+    $(".related__products__slider").owlCarousel({
+        loop: true,
+        margin: 0,
+        items: 4,
+        dots: false,
+        nav: true,
+        navText: ["<span class='arrow_carrot-left'><span/>", "<span class='arrow_carrot-right'><span/>"],
+        smartSpeed: 1200,
+        autoHeight: false,
+        autoplay: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            480: {
+                items: 2
+            },
+            768: {
+                items: 3
+            },
+            992: {
+                items: 4
+            },
+        }
+    });
 
-  // If current layout is horizontal OR current window screen is small (overlay menu) than return from here
-  if (window.Helpers.isSmallScreen()) {
-    return;
-  }
+    /*--------------------------
+        Select
+    ----------------------------*/
+    $("select").niceSelect();
 
-  // If current layout is vertical and current window screen is > small
+    /*------------------
+		Magnific
+	--------------------*/
+    $('.video-popup').magnificPopup({
+        type: 'iframe'
+    });
 
-  // Auto update menu collapsed/expanded based on the themeConfig
-  window.Helpers.setCollapsed(true, false);
-})();
+    /*------------------
+        Barfiller
+    --------------------*/
+    $('#bar1').barfiller({
+        barColor: '#111111',
+        duration: 2000
+    });
+    $('#bar2').barfiller({
+        barColor: '#111111',
+        duration: 2000
+    });
+    $('#bar3').barfiller({
+        barColor: '#111111',
+        duration: 2000
+    });
+
+
+    /*------------------
+		Single Product
+	--------------------*/
+    $('.product__details__thumb img').on('click', function () {
+        $('.product__details__thumb .pt__item').removeClass('active');
+        $(this).addClass('active');
+        var imgurl = $(this).data('imgbigurl');
+        var bigImg = $('.big_img').attr('src');
+        if (imgurl != bigImg) {
+            $('.big_img').attr({
+                src: imgurl
+            });
+        }
+    });
+
+    /*-------------------
+		Quantity change
+	--------------------- */
+    var proQty = $('.pro-qty');
+    proQty.prepend('<span class="dec qtybtn">-</span>');
+    proQty.append('<span class="inc qtybtn">+</span>');
+    proQty.on('click', '.qtybtn', function () {
+        var $button = $(this);
+        var oldValue = $button.parent().find('input').val();
+        if ($button.hasClass('inc')) {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            // Don't allow decrementing below zero
+            if (oldValue > 0) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 0;
+            }
+        }
+        $button.parent().find('input').val(newVal);
+    });
+
+    
+
+    $(".product__details__thumb").niceScroll({
+        cursorborder: "",
+        cursorcolor: "rgba(0, 0, 0, 0.5)",
+        boxzoom: false
+      });
+
+})(jQuery);

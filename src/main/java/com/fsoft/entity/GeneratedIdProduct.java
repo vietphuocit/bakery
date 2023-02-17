@@ -26,4 +26,9 @@ public class GeneratedIdProduct {
 		this.count = count;
 	}
 
+	@Override
+	public String toString() {
+		return "GeneratedIdProduct [count=" + count + "]";
+	}
+
 }

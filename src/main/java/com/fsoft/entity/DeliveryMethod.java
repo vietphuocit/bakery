@@ -41,4 +41,9 @@ public class DeliveryMethod {
 		this.type = type;
 	}
 
+	@Override
+	public String toString() {
+		return "DeliveryMethod [id=" + id + ", type=" + type + "]";
+	}
+
 }

@@ -9,5 +9,5 @@ import com.fsoft.entity.Role;
 
 @Repository("roleRepository")
 public interface RoleRepository extends JpaRepository<Role, Long> {
-    Optional<Role> findByName(String roleName);
+	Optional<Role> findByName(String roleName);
 }

@@ -41,4 +41,9 @@ public class OrderStatus {
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return "OrderStatus [id=" + id + ", name=" + name + "]";
+	}
+
 }

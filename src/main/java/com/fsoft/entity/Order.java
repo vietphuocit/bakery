@@ -16,7 +16,6 @@ import org.hibernate.annotations.CreationTimestamp;
 @Entity
 @Table(name = "orders")
 public class Order {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -124,6 +123,13 @@ public class Order {
 
 	public void setStaff(User staff) {
 		this.staff = staff;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", note=" + note + ", orderDate=" + orderDate + ", totalMoney=" + totalMoney
+				+ ", orderStatus=" + orderStatus + ", deliveryMethod=" + deliveryMethod + ", paymentMethod="
+				+ paymentMethod + ", customer=" + customer + ", staff=" + staff + "]";
 	}
 
 }

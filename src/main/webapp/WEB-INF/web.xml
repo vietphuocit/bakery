@@ -95,4 +95,8 @@
 		<error-code>403</error-code>
 		<location>/WEB-INF/views/error/403_forbidden.jsp</location>
 	</error-page>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
 </web-app>

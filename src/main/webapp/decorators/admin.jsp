@@ -6,9 +6,10 @@
 <head>
 <meta charset='UTF-8'>
 <title>Admin</title>
+
 <!-- Favicon -->
 <link rel='icon' type='image/x-icon'
-	href='<core:url value='/template/assets/img/favicon/favicon.ico' />' />
+	href='https://cdn-icons-png.flaticon.com/512/9480/9480880.png' />
 
 <!-- Fonts -->
 <link rel='preconnect' href='https://fonts.googleapis.com' />
@@ -29,7 +30,7 @@
 	href='<core:url value='/template/assets/vendor/css/theme-default.css' />'
 	class='template-customizer-theme-css' />
 <link rel='stylesheet'
-	href='<core:url value='/template/assets/css/demo.css'  />' />
+	href='<core:url value='/template/assets/css/admin.css'  />' />
 
 <!-- Vendors CSS -->
 <link rel='stylesheet'
@@ -79,8 +80,7 @@
 					<!-- Dashboard -->
 					<li class='menu-item' id='dashboard'><a
 						href='<core:url value='/admin'/>' class='menu-link'> <i
-							class='menu-icon tf-icons bx bx-home-circle'></i>
-							Dashboard
+							class='menu-icon tf-icons bx bx-home-circle'></i> Dashboard
 					</a></li>
 
 					<li class='menu-item' id='category'><a
