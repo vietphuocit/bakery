@@ -27,6 +27,11 @@
 /*----------------------------------------*/
 /* Template default CSS
 /*----------------------------------------*/
+:root {
+  --main-color: rgb(255, 174, 177);
+  --main-color-rgba: rgba(255, 174, 177, 0.2);
+}
+
 html,
 body {
   height: 100%;
@@ -110,7 +115,7 @@ ol {
   margin-bottom: 35px;
 }
 .section-title span {
-  color: #ffaeb1;
+  color: var(--main-color);
   font-size: 20px;
   font-weight: 600;
   text-transform: uppercase;
@@ -159,7 +164,7 @@ ol {
   text-transform: uppercase;
   padding: 14px 30px;
   color: #ffffff;
-  background: #ffaeb1;
+  background: var(--main-color);
   letter-spacing: 2px;
 }
 
@@ -308,7 +313,7 @@ ol {
   Header
 -----------------------*/
 .header {
-  background: #ffaeb1;
+  background: var(--main-color);
 }
 
 .header__top {
@@ -555,7 +560,7 @@ ol {
   top: 15px;
   height: calc(100% - 30px);
   width: calc(100% - 30px);
-  border: 1px dashed #ffaeb1;
+  border: 1px dashed var(--main-color);
   content: "";
   opacity: 0.3;
 }
@@ -650,8 +655,8 @@ ol {
   bottom: -48px;
   width: 15px;
   height: 15px;
-  border: 1px solid #ffaeb1;
-  border-color: transparent #ffaeb1 #ffaeb1 transparent;
+  border: 1px solid var(--main-color);
+  border-color: transparent var(--main-color) var(--main-color) transparent;
   content: "";
   -webkit-transform: rotate(-135deg);
       -ms-transform: rotate(-135deg);
@@ -662,7 +667,7 @@ ol {
   transition: all, 0.3s;
 }
 .categories__item:hover {
-  background: #ffaeb1;
+  background: var(--main-color);
 }
 .categories__item:hover:after {
   opacity: 1;
@@ -675,7 +680,7 @@ ol {
 }
 
 .categories__item__icon span {
-  color: #ffaeb1;
+  color: var(--main-color);
   -webkit-transition: all, 0.2s;
   -o-transition: all, 0.2s;
   transition: all, 0.2s;
@@ -694,7 +699,7 @@ ol {
   Class
 -----------------------*/
 .class {
-  background: rgba(240, 135, 50, 0.1);
+  background: var(--main-color-rgba);
   position: relative;
   padding-bottom: 0;
 }
@@ -771,13 +776,13 @@ ol {
           justify-content: center;
   position: absolute;
   right: 0;
-  top: -50px;
+  top: 0;
 }
 .class__video .play-btn {
   display: inline-block;
   width: 70px;
   height: 70px;
-  background: #ffaeb1;
+  background: var(--main-color);
   font-size: 24px;
   color: #ffffff;
   line-height: 70px;
@@ -861,7 +866,7 @@ ol {
   Testimonial
 -----------------------*/
 .testimonial {
-  background: #fdf3ea;
+  background: var(--main-color-rgba);
   padding-top: 90px;
   padding-bottom: 70px;
 }
@@ -920,8 +925,9 @@ ol {
 }
 .testimonial__author__pic img {
   height: 70px;
-  width: 70px;
+  width: 70px !important;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .testimonial__author__text {
@@ -1051,7 +1057,7 @@ ol {
   margin-bottom: 40px;
 }
 .product__item:hover .product__item__pic .product__label span {
-  background: #ffaeb1;
+  background: var(--main-color);
   color: #ffffff;
 }
 .product__item:hover .product__item__text .product__item__price {
@@ -1127,7 +1133,7 @@ ol {
   font-size: 16px;
   font-weight: 600;
   display: inline-block;
-  border-bottom: 2px solid #ffaeb1;
+  border-bottom: 2px solid var(--main-color);
   padding-bottom: 4px;
 }
 
@@ -1152,7 +1158,7 @@ ol {
 }
 
 .footer {
-  background-color: #ffaeb1;
+  background-color: var(--main-color);
   padding-top: 70px;
 }
 
@@ -1277,7 +1283,7 @@ ol {
 }
 .footer__newslatter form button {
   font-size: 20px;
-  color: #ffaeb1;
+  color: var(--main-color);
   background: transparent;
   border: none;
   position: absolute;
@@ -1299,10 +1305,10 @@ ol {
   color: #888888;
 }
 .copyright__text i {
-  color: #ffaeb1;
+  color: var(--main-color);
 }
 .copyright__text a {
-  color: #ffaeb1;
+  color: var(--main-color);
 }
 
 .copyright__widget {
@@ -1336,7 +1342,7 @@ ol {
   Breadcrumb
 -----------------------*/
 .breadcrumb-option {
-  padding-top: 60px;
+  padding-top: 40px;
 }
 
 .breadcrumb__text h2 {
@@ -1349,7 +1355,6 @@ ol {
 
 .breadcrumb__links {
   text-align: right;
-  padding-top: 15px;
 }
 .breadcrumb__links a {
   font-size: 16px;
@@ -1428,7 +1433,7 @@ ol {
   display: inline-block;
   width: 70px;
   height: 70px;
-  background: #ffaeb1;
+  background: var(--main-color);
   font-size: 24px;
   color: #ffffff;
   line-height: 70px;
@@ -1440,7 +1445,7 @@ ol {
   Shop
 -----------------------*/
 .shop {
-  padding-top: 80px;
+  padding-top: 40px;
 }
 
 .shop__option {
@@ -1460,7 +1465,6 @@ ol {
   width: 25%;
   height: 44px;
   line-height: 44px;
-  padding-left: 30px;
   border-radius: 0;
 }
 .shop__option__search form .nice-select .list {
@@ -1538,7 +1542,6 @@ ol {
   padding-left: 30px;
   border-radius: 0;
   float: none;
-  margin-right: 18px;
 }
 .shop__option__right .nice-select .list {
   margin-top: 0;
@@ -1718,7 +1721,7 @@ ol {
   font-size: 20px;
   border: 1px solid #e1e1e1;
   display: inline-block;
-  color: #ffaeb1;
+  color: var(--main-color);
   padding: 14px;
   line-height: 16px;
 }
@@ -1956,7 +1959,7 @@ ol {
 }
 
 .cart__total {
-  background: #fdf3ea;
+  background: var(--main-color-rgba);
   padding: 35px 40px 40px;
 }
 .cart__total h6 {
@@ -2002,7 +2005,7 @@ ol {
   margin-bottom: 50px;
 }
 .coupon__code span {
-  color: #ffaeb1;
+  color: var(--main-color);
 }
 .coupon__code a {
   color: #444444;
@@ -2026,7 +2029,7 @@ ol {
   margin-bottom: 12px;
 }
 .checkout__input p span {
-  color: #ffaeb1;
+  color: var(--main-color);
 }
 .checkout__input input {
   height: 50px;
@@ -2068,7 +2071,7 @@ ol {
   visibility: hidden;
 }
 .checkout__input__checkbox label input:checked ~ .checkmark {
-  border-color: #ffaeb1;
+  border-color: var(--main-color);
 }
 .checkout__input__checkbox label input:checked ~ .checkmark:after {
   opacity: 1;
@@ -2089,7 +2092,7 @@ ol {
   top: -3px;
   width: 14px;
   height: 7px;
-  border: solid #ffaeb1;
+  border: solid var(--main-color);
   border-width: 1.5px 1.5px 0px 0px;
   -webkit-transform: rotate(127deg);
   -ms-transform: rotate(127deg);
@@ -2105,7 +2108,7 @@ ol {
 }
 
 .checkout__order {
-  background: #fdf3ea;
+  background: var(--main-color-rgba);
   padding: 30px;
 }
 .checkout__order .order__title {
@@ -2178,7 +2181,7 @@ ol {
   overflow: hidden;
 }
 .checkout__total__all li span {
-  color: #ffaeb1;
+  color: var(--main-color);
   float: right;
 }
 
@@ -2269,7 +2272,7 @@ ol {
   margin-bottom: 55px;
 }
 .class__item:hover .class__item__pic .label {
-  background: #ffaeb1;
+  background: var(--main-color);
 }
 .class__item:hover .class__item__text h5 a {
   text-decoration: underline;
@@ -2319,12 +2322,12 @@ ol {
 }
 .class__item__text .read_more {
   font-size: 16px;
-  color: #ffaeb1;
+  color: var(--main-color);
   font-weight: 600;
 }
 
 .class__sidebar {
-  background: #fdf3ea;
+  background: var(--main-color-rgba);
   padding: 30px;
 }
 .class__sidebar h5 {
@@ -2417,7 +2420,7 @@ ol {
   font-size: 14px;
   color: #ffffff;
   font-weight: 600;
-  background: #ffaeb1;
+  background: var(--main-color);
   display: inline-block;
   padding: 4px 15px 2px;
 }
@@ -2470,7 +2473,7 @@ ol {
   letter-spacing: 2px;
   text-transform: uppercase;
   padding-bottom: 3px;
-  border-bottom: 2px solid #ffaeb1;
+  border-bottom: 2px solid var(--main-color);
 }
 
 /*---------------------
@@ -2572,7 +2575,7 @@ ol {
   text-decoration: line-through;
 }
 .blog__sidebar__item .blog__sidebar__item__categories ul li:hover a span {
-  color: #ffaeb1;
+  color: var(--main-color);
 }
 .blog__sidebar__item .blog__sidebar__item__categories ul li a {
   font-size: 16px;
@@ -2623,7 +2626,7 @@ ol {
   visibility: hidden;
 }
 .blog__sidebar__item form label input:checked ~ .checkmark {
-  border-color: #ffaeb1;
+  border-color: var(--main-color);
 }
 .blog__sidebar__item form label input:checked ~ .checkmark:after {
   opacity: 1;
@@ -2644,7 +2647,7 @@ ol {
   top: -3px;
   width: 14px;
   height: 7px;
-  border: solid #ffaeb1;
+  border: solid var(--main-color);
   border-width: 1.5px 1.5px 0px 0px;
   -webkit-transform: rotate(127deg);
   -ms-transform: rotate(127deg);
@@ -2880,7 +2883,7 @@ ol {
 }
 .blog__details__print .primary-btn {
   background: transparent;
-  border: 1px solid #ffaeb1;
+  border: 1px solid var(--main-color);
   color: #111111;
 }
 .blog__details__print .primary-btn i {
@@ -2942,7 +2945,7 @@ ol {
 
 .blog__details__author {
   position: relative;
-  background: #fdf3ea;
+  background: var(--main-color-rgba);
   overflow: hidden;
   padding: 50px;
   margin-bottom: 85px;

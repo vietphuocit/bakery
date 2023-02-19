@@ -100,7 +100,8 @@
 
 				<nav
 					class='layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme'
-					id='layout-navbar'></nav>
+					id='layout-navbar'>
+					Search + Logout</nav>
 
 				<!-- / Navbar -->
 
@@ -165,6 +166,7 @@
 
 	<!-- Script -->
 	<script type='text/javascript'>
+		/* Active navigation */
 		var activeE = document.querySelectorAll('li.active');
 		activeE.length != 0 ? activeE[0].classList.remove('active') : '';
 		var path = location.pathname;
