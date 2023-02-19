@@ -78,10 +78,10 @@
 				</div>
 			</div>
 		</div>
-		<div class='offcanvas__logo'>
+		<%-- <div class='offcanvas__logo'>
 			<a href='./index.html'><img
 				src='<core:url value='/template/assets/img/logo.png'/>' alt=''></a>
-		</div>
+		</div> --%>
 		<div id='mobile-menu-wrap'></div>
 		<div class='offcanvas__option'>
 			<ul>
@@ -163,20 +163,12 @@
 				<div class='col-lg-12'>
 					<nav class='header__menu mobile-menu'>
 						<ul>
-							<li class='active'><a href='./index.html'>Home</a></li>
-							<li><a href='./about.html'>About</a></li>
-							<li><a href='./shop.html'>Shop</a></li>
-							<li><a href='#'>Pages</a>
-								<ul class='dropdown'>
-									<li><a href='./shop-details.html'>Shop Details</a></li>
-									<li><a href='./shoping-cart.html'>Shoping Cart</a></li>
-									<li><a href='./checkout.html'>Check Out</a></li>
-									<li><a href='./wisslist.html'>Wisslist</a></li>
-									<li><a href='./Class.html'>Class</a></li>
-									<li><a href='./blog-details.html'>Blog Details</a></li>
-								</ul></li>
-							<li><a href='./blog.html'>Blog</a></li>
-							<li><a href='./contact.html'>Contact</a></li>
+							<li id="home"><a
+								href='<core:url value="/" />'>Home</a></li>
+							<li id="shop"><a href='<core:url value="/shop" />'>Shop</a></li>
+							<li id="about"><a href='<core:url value="/about" />'>About</a></li>
+							<li id="blog"><a href='<core:url value="/blog" />'>Blog</a></li>
+							<li id="contact"><a href='<core:url value="/contact" />'>Contact</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -292,6 +284,28 @@
 		src='<core:url value = '/template/assets/js/owl.carousel.min.js'/>'></script>
 	<script
 		src='<core:url value = '/template/assets/js/jquery.nicescroll.min.js'/>'></script>
+		
 	<script src='<core:url value = '/template/assets/js/main.js'/>'></script>
+	
+	<script type="text/javascript">
+		/* Active navigation */
+		var activeE = document.querySelectorAll('li.active');
+
+		(activeE.length != 0) ? activeE[0].classList.remove('active') : '';
+
+		var path = location.pathname;
+
+		if (path.indexOf('about') != -1) {
+			document.getElementById('about').classList.add('active');
+		} else if (path.indexOf('blog') != -1) {
+			document.getElementById('blog').classList.add('active');
+		} else if (path.indexOf('contact') != -1) {
+			document.getElementById('contact').classList.add('active');
+		} else if (path.indexOf('shop') != -1) {
+			document.getElementById('shop').classList.add('active');
+		} else {
+			document.getElementById('home').classList.add('active');
+		}
+	</script>
 </body>
 </html>

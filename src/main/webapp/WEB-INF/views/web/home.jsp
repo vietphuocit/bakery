@@ -1,6 +1,7 @@
 <%@ page language='java' contentType='text/html; charset=UTF-8'
 	pageEncoding='UTF-8'%>
 <%@ include file='/common/taglib.jsp'%>
+
 <!-- Hero Section Begin -->
 <section class='hero'>
 	<div class='hero__slider owl-carousel'>
@@ -542,7 +543,7 @@
 						<div class='testimonial__author'>
 							<div class='testimonial__author__pic'>
 								<img
-									src='<core:url value='/template/assets/img/testimonial/ta-2.jpg'/>'
+									src='<core:url value='/template/assets/img/testimonial/zalo.jpg'/>'
 									alt=''>
 							</div>
 							<div class='testimonial__author__text'>
@@ -631,4 +632,3 @@
 	</div>
 </section>
 <!-- Instagram Section End -->
->
