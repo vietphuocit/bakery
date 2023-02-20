@@ -75,23 +75,19 @@ public class ProductController {
 
 	@RequestMapping(value = "/product", method = RequestMethod.GET)
 	public String pageProduct(Model model) {
-		model.addAttribute("listProduct", productService.findAllOrderASCById());
-		model.addAttribute("listCategory", categoryService.findAllOrderASCById());
+		
+		model.addAttribute("products", productService.findAllOrderASCById());
+		model.addAttribute("categories", categoryService.findAllOrderASCById());
 
-		return "auth/product";
-	}
-
-	@RequestMapping(value = "/category/{id}", method = RequestMethod.GET)
-	public String pageCategory(Model model, @PathVariable("id") Long id) {
-		model.addAttribute("filterProduct", productService.findByCategory(id));
-		model.addAttribute("listCategory", categoryService.findAllOrderASCById());
-		return "auth/filterProduct";
+		return "web/product";
 	}
 
 	@RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
 	public String pageProductDetail(Model model, @PathVariable("id") Long id) {
-		model.addAttribute("productDetail", productService.findByPrimaryKeyProductId(id));
-		return "auth/productDetail";
+		
+		model.addAttribute("product", productService.findByPrimaryKeyProductId(id));
+		
+		return "web/productDetails";
 
 	}
 }

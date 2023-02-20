@@ -3,6 +3,7 @@ package com.fsoft.service;
 import java.util.List;
 
 import com.fsoft.dto.request.ProductRequest;
+import com.fsoft.dto.response.ProductResponse;
 import com.fsoft.entity.Product;
 
 public interface ProductService {
@@ -17,5 +18,5 @@ public interface ProductService {
 
 	List<Product> findByCategory(Long id);
 	
-	List<Product> findByPrimaryKeyProductId(Long id);
+	ProductResponse findByPrimaryKeyProductId(Long id);
 }

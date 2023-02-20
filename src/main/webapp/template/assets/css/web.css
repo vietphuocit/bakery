@@ -7,7 +7,7 @@
   Created: Colorib
 ******************************************************************/
 /*------------------------------------------------------------------
-[Table of contents]
+[Table of contents]menu-inner
 
 1.  Template default CSS
 	1.1	Variables
@@ -325,8 +325,9 @@ ol {
 }
 
 .header__top__inner {
-  height: 102px;
-  padding-top: 38px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header__top__left {
@@ -392,10 +393,6 @@ ol {
 }
 
 .header__logo {
-  position: absolute;
-  left: 50%;
-  top: 25px;
-  margin-left: -60px;
 }
 
 .header__logo a img {
@@ -1608,7 +1605,7 @@ ol {
   Product Details
 -----------------------*/
 .product-details {
-  padding-top: 90px;
+  padding-top: 40px;
   padding-bottom: 0;
 }
 
@@ -4072,4 +4069,40 @@ ol {
   .checkout__order__products span {
     display: none;
   }
+}
+
+/* My CSS */
+
+.btn-check:active+.btn-radio-size,
+.btn-check:checked+.btn-radio-size,
+.btn-radio-size.active,
+.btn-radio-size:active,
+.show > .btn-radio-size.dropdown-toggle {
+	color: #fff;
+    background-color: var(--main-color);
+    border: 2px solid rgb(254 150 155);
+	box-shadow: none;
+}
+
+.btn-radio-size {
+	color: #000;
+    background-color: #fff;
+    border: 2px solid #ccc;
+}
+
+#ul-size {
+	display: flex;
+    align-items: center;
+}
+
+#ul-size li:first-child {
+	font-size: 20px;
+}
+
+#ul-size li {
+	margin-right: 8px; 
+}
+
+a {
+	text-decoration: none;
 }
