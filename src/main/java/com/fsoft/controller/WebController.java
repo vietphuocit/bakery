@@ -41,12 +41,4 @@ public class WebController {
 
 		return "web/contact";
 	}
-
-	@RequestMapping(value = { "shop/", "shop" }, method = RequestMethod.GET)
-	public String shopPage(Model model) {
-		
-		model.addAttribute("products", productService.findAllOrderASCById());
-		model.addAttribute("categories", categoryService.findAllOrderASCById());
-		return "web/shop";
-	}
 }

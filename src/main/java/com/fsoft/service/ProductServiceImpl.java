@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fsoft.dto.request.ProductRequest;
+import com.fsoft.dto.response.ProductDetailResponse;
+import com.fsoft.dto.response.ProductResponse;
 import com.fsoft.entity.Category;
 import com.fsoft.entity.GeneratedIdProduct;
 import com.fsoft.entity.PrimaryKeyProduct;
@@ -111,13 +114,22 @@ public class ProductServiceImpl implements ProductService {
 		return false;
 	}
 
+	@Override
 	public List<Product> findByCategory(Long id) {
 		return productRepository.findByCategory_id(id);
 	}
 
 	@Override
-	public List<Product> findByPrimaryKeyProductId(Long id) {
-		return productRepository.findByPrimaryKeyProduct_id(id);
+	public ProductResponse findByPrimaryKeyProductId(Long id) {
+		List<Product> products = productRepository.findByPrimaryKeyProduct_id(id);
+		List<ProductDetailResponse> productDetails = new ArrayList<>();
+		for (Product product : products) {
+			productDetails.add(new ProductDetailResponse(product.getPrimaryKeyProduct().getSize(),
+					product.getDiscount(), product.getPrice(), product.getQuantity()));
+		}
+
+		return new ProductResponse(products.get(0).getName(), products.get(0).getDescription(),
+				products.get(0).getCategory(), products.get(0).getImage(), productDetails);
 	}
 
 	public Long getGeneratedIdProduct() {

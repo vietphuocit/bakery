@@ -48,6 +48,7 @@ public class Product {
 	private Category category;
 
 	public Product() {
+		
 	}
 
 	public Product(PrimaryKeyProduct primaryKeyProduct, String name, String description, int price, int quantity,
