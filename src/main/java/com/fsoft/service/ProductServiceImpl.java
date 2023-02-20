@@ -123,13 +123,15 @@ public class ProductServiceImpl implements ProductService {
 	public ProductResponse findByPrimaryKeyProductId(Long id) {
 		List<Product> products = productRepository.findByPrimaryKeyProduct_id(id);
 		List<ProductDetailResponse> productDetails = new ArrayList<>();
+
 		for (Product product : products) {
 			productDetails.add(new ProductDetailResponse(product.getPrimaryKeyProduct().getSize(),
 					product.getDiscount(), product.getPrice(), product.getQuantity()));
 		}
 
-		return new ProductResponse(products.get(0).getName(), products.get(0).getDescription(),
-				products.get(0).getCategory(), products.get(0).getImage(), productDetails);
+		return new ProductResponse(products.get(0).getPrimaryKeyProduct().getId(), products.get(0).getName(),
+				products.get(0).getDescription(), products.get(0).getCategory(), products.get(0).getImage(),
+				productDetails);
 	}
 
 	public Long getGeneratedIdProduct() {

@@ -1635,8 +1635,8 @@ ol {
 .product__details__text .product__label {
   display: inline-block;
   font-size: 14px;
-  color: #ffffff;
-  background: #111111;
+  color: #fff;
+  background: var(--main-color);
   padding: 6px 10px 4px;
   border-radius: 4px;
 }

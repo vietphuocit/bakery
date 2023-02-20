@@ -2,14 +2,16 @@
 	pageEncoding='UTF-8'%>
 <%@ include file='/common/taglib.jsp'%>
 
+<core:set var='price' value='${ product.productDetails.get(0).price }' />
+
 <!-- Breadcrumb Begin -->
 <div class='breadcrumb-option'>
 	<div class='container'>
 		<div class='row'>
 			<div class='pl-3'>
 				<div class='breadcrumb__links'>
-					<a href='<core:url value="/"/>'>Home</a> <a
-						href='<core:url value="/product"/>'>Shop</a> <span>${ product.name }</span>
+					<a href='<core:url value='/'/>'>Home</a> <a
+						href='<core:url value='/product'/>'>Shop</a> <span>${ product.name }</span>
 				</div>
 			</div>
 		</div>
@@ -25,7 +27,7 @@
 				<div class='product__details__img'>
 					<div class='product__details__big__img'>
 						<img class='big_img'
-							src='<core:url value="/uploads/${ product.image }"/>' alt=''>
+							src='<core:url value='/uploads/${ product.image }'/>' alt=''>
 					</div>
 				</div>
 			</div>
@@ -33,26 +35,28 @@
 				<div class='product__details__text'>
 					<div class='product__label'>${ product.category.name }</div>
 					<h4>${ product.name }</h4>
-					<%-- <h5>${ product.price }</h5> --%>
-					<p>${ product.description }</p>
-					<ul id="ul-size">
+					<h5 id='price'>${ price }</h5>
+					<ul id='ul-size'>
 						<li><span>Size</span></li>
-						<core:forEach var="productDetail"
-							items="${ product.productDetails }">
-							<li><input class="btn-check" id="id-${ productDetail.size }"
-								type="radio" name="size" value="${ productDetail.size }" /> <label
-								class="btn btn-radio-size" for="id-${ productDetail.size }">${ productDetail.size }cm</label>
-							</li>
+						<core:forEach var='productDetail'
+							items='${ product.productDetails }'>
+							<li><input class='btn-check' id='id-${ productDetail.size }'
+								type='radio' name='size' value='${ productDetail.size }' /> <label
+								class='btn btn-radio-size' for='id-${ productDetail.size }'>${ productDetail.size }
+									cm</label></li>
 						</core:forEach>
 					</ul>
 					<div class='product__details__option'>
 						<div class='quantity'>
 							<div class='pro-qty'>
-								<input type='text' value='1'>
+								<input id='quantity' type='text' value='1'>
 							</div>
 						</div>
-						<a href='#' class='primary-btn'>Add to cart</a> <a href='#'
-							class='heart__btn'><span class='icon_heart_alt'></span></a>
+						<button onClick='addToCart()' class='primary-btn'>Add to
+							cart</button>
+						<button class='heart__btn'>
+							<span class='icon_heart_alt'></span>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -126,7 +130,7 @@
 				<div class='col-lg-3'>
 					<div class='product__item'>
 						<div class='product__item__pic set-bg'
-							data-setbg='<core:url value="/template/assets/img/shop/product-1.jpg"/>'>
+							data-setbg='<core:url value='/template/assets/img/shop/product-1.jpg'/>'>
 							<div class='product__label'>
 								<span>Cupcake</span>
 							</div>
@@ -145,7 +149,7 @@
 				<div class='col-lg-3'>
 					<div class='product__item'>
 						<div class='product__item__pic set-bg'
-							data-setbg='<core:url value="/template/assets/img/shop/product-2.jpg"/>'>
+							data-setbg='<core:url value='/template/assets/img/shop/product-2.jpg'/>'>
 							<div class='product__label'>
 								<span>Cupcake</span>
 							</div>
@@ -164,7 +168,7 @@
 				<div class='col-lg-3'>
 					<div class='product__item'>
 						<div class='product__item__pic set-bg'
-							data-setbg='<core:url value="/template/assets/img/shop/product-3.jpg"/>'>
+							data-setbg='<core:url value='/template/assets/img/shop/product-3.jpg'/>'>
 							<div class='product__label'>
 								<span>Cupcake</span>
 							</div>
@@ -183,7 +187,7 @@
 				<div class='col-lg-3'>
 					<div class='product__item'>
 						<div class='product__item__pic set-bg'
-							data-setbg='<core:url value="/template/assets/img/shop/product-4.jpg"/>'>
+							data-setbg='<core:url value='/template/assets/img/shop/product-4.jpg'/>'>
 							<div class='product__label'>
 								<span>Cupcake</span>
 							</div>
@@ -202,7 +206,7 @@
 				<div class='col-lg-3'>
 					<div class='product__item'>
 						<div class='product__item__pic set-bg'
-							data-setbg='<core:url value="/template/assets/img/shop/product-5.jpg"/>'>
+							data-setbg='<core:url value='/template/assets/img/shop/product-5.jpg'/>'>
 							<div class='product__label'>
 								<span>Cupcake</span>
 							</div>
@@ -221,7 +225,7 @@
 				<div class='col-lg-3'>
 					<div class='product__item'>
 						<div class='product__item__pic set-bg'
-							data-setbg='<core:url value="/template/assets/img/shop/product-6.jpg"/>'>
+							data-setbg='<core:url value='/template/assets/img/shop/product-6.jpg'/>'>
 							<div class='product__label'>
 								<span>Cupcake</span>
 							</div>
@@ -241,3 +245,38 @@
 		</div>
 	</div>
 </section>
+
+<script type='text/javascript'>
+	var rad = document.getElementsByName('size');
+	for (var i = 0; i < rad.length; i++) {
+		rad[i].addEventListener('change', function() {
+			var price = document.getElementById('price');
+			<core:forEach var='productDetail' items='${ product.productDetails }'>
+			if ('${productDetail.size}' == this.value) {
+				price.innerText = '${productDetail.price}';
+				<core:set var='price' value='${ productDetail.price }' />
+			}
+			</core:forEach>
+		});
+	}
+
+	function addToCart() {
+		var quantity = document.getElementById("quantity").value;
+		var size = document.querySelector('input[name="size"]:checked').value;
+		
+		var productDetail = {
+			idProduct: '${ product.id }',
+			name: '${ product.name }',
+			image: '${ product.image }',
+			price: '${ price }',
+			size,
+			quantity,
+		}
+		
+		var cart = getCart();
+		
+		cart.push(productDetail);
+	    localStorage.setItem('cart', JSON.stringify(cart));
+	    console.log(cart);
+	}
+</script>

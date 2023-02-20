@@ -11,7 +11,7 @@ import com.fsoft.service.ProductService;
 
 @Controller
 public class WebController {
-	
+
 	@Autowired
 	ProductService productService;
 
@@ -40,5 +40,11 @@ public class WebController {
 	public String contactPage(Model model) {
 
 		return "web/contact";
+	}
+
+	@RequestMapping(value = { "cart/", "cart" }, method = RequestMethod.GET)
+	public String cartPage(Model model) {
+
+		return "web/cart";
 	}
 }

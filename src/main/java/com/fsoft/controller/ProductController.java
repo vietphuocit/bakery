@@ -88,6 +88,5 @@ public class ProductController {
 		model.addAttribute("product", productService.findByPrimaryKeyProductId(id));
 		
 		return "web/productDetails";
-
 	}
 }

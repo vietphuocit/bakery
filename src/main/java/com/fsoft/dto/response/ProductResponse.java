@@ -5,6 +5,7 @@ import java.util.List;
 import com.fsoft.entity.Category;
 
 public class ProductResponse {
+	private Long id;
 	private String name;
 	private String description;
 	private Category category;
@@ -15,14 +16,23 @@ public class ProductResponse {
 		super();
 	}
 
-	public ProductResponse(String name, String description, Category category, String image,
+	public ProductResponse(Long id, String name, String description, Category category, String image,
 			List<ProductDetailResponse> productDetails) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.category = category;
 		this.image = image;
 		this.productDetails = productDetails;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	/**
@@ -93,6 +103,12 @@ public class ProductResponse {
 	 */
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	@Override
+	public String toString() {
+		return "ProductResponse [name=" + name + ", description=" + description + ", category=" + category + ", image="
+				+ image + ", productDetails=" + productDetails + "]";
 	}
 
 }

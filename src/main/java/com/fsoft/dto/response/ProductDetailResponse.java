@@ -74,4 +74,10 @@ public class ProductDetailResponse {
 		this.quantity = quantity;
 	}
 
+	@Override
+	public String toString() {
+		return "ProductDetailResponse [size=" + size + ", discount=" + discount + ", price=" + price + ", quantity="
+				+ quantity + "]";
+	}
+
 }
