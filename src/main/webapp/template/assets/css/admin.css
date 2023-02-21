@@ -4,12 +4,13 @@
 ******************************************************************************/
 .menu .app-brand.demo {
 	height: 64px;
-	margin-top: 12px;
+	margin: 24px 0;
+	display: flex;
+	justify-content: center;
 }
 
-.app-brand-logo.demo svg {
-	width: 22px;
-	height: 38px;
+.app-brand-logo.demo img {
+	height: 64px;
 }
 
 .app-brand-text.demo {
@@ -123,4 +124,15 @@
 	font-size: 0.9375rem;
 	font-weight: 400;
 	line-height: 1.53;
+}
+
+/* My CSS */
+
+.my-layout-menu {
+	position: fixed;
+	height: 100vh;
+}
+
+.my-layout-page {
+    padding-left: 260px;
 }

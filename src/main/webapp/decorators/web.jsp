@@ -21,10 +21,8 @@
 
 <!-- Css Styles -->
 <link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-	crossorigin="anonymous">
+	href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css'
+	rel='stylesheet'>
 <link rel='stylesheet'
 	href='<core:url value = '/template/assets/css/flaticon.css'/>'
 	type='text/css'>
@@ -120,11 +118,11 @@
 				<div class='col-lg-12'>
 					<nav class='header__menu mobile-menu'>
 						<ul>
-							<li id="home"><a href='<core:url value="/" />'>Home</a></li>
-							<li id="shop"><a href='<core:url value="/product" />'>Shop</a></li>
-							<li id="about"><a href='<core:url value="/about" />'>About</a></li>
-							<li id="blog"><a href='<core:url value="/blog" />'>Blog</a></li>
-							<li id="contact"><a href='<core:url value="/contact" />'>Contact</a></li>
+							<li id='home'><a href='<core:url value='/' />'>Home</a></li>
+							<li id='shop'><a href='<core:url value='/product' />'>Shop</a></li>
+							<li id='about'><a href='<core:url value='/about' />'>About</a></li>
+							<li id='blog'><a href='<core:url value='/blog' />'>Blog</a></li>
+							<li id='contact'><a href='<core:url value='/contact' />'>Contact</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -243,7 +241,7 @@
 
 	<script src='<core:url value = '/template/assets/js/main.js'/>'></script>
 
-	<script type="text/javascript">
+	<script type='text/javascript'>
 		/* Active navigation */
 		var activeE = document.querySelectorAll('li.active');
 
