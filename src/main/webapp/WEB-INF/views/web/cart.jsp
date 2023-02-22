@@ -2,9 +2,6 @@
 	pageEncoding='UTF-8'%>
 <%@ include file='/common/taglib.jsp'%>
 
-<core:set var='cart' value='${ getCart }' />
-
-<core:out value="${ cart }"></core:out>
 
 <!-- Shopping Cart Section Begin -->
 <section class='shopping-cart spad'>
@@ -22,7 +19,8 @@
 							</tr>
 						</thead>
 						<tbody>
-							<core:forEach items='${ cart }' var='product'>
+							<core:forEach items='${ cart }' var='orderDetail'>
+								<core:set var='product' value='${ orderDetail.product }' />
 								<tr>
 									<td class='product__cart__item'>
 										<div class='product__cart__item__pic'>
@@ -37,11 +35,11 @@
 									<td class='quantity__item'>
 										<div class='quantity'>
 											<div class='pro-qty'>
-												<input type='text' value='${ product.quantity }'>
+												<input type='text' value='${ orderDetail.quantity }'>
 											</div>
 										</div>
 									</td>
-									<td class='cart__price'>${ product.price * product.quantity }</td>
+									<td class='cart__price'>${ product.price * orderDetail.quantity }</td>
 									<td class='cart__close'><span class='icon_close'></span></td>
 								</tr>
 							</core:forEach>
@@ -51,7 +49,7 @@
 				<div class='row'>
 					<div class='col-lg-6 col-md-6 col-sm-6'>
 						<div class='continue__btn'>
-							<button onClick='click()'>Continue Shopping</button>
+							<a href='#'>Continue Shopping</a>
 						</div>
 					</div>
 					<div class='col-lg-6 col-md-6 col-sm-6'>
@@ -83,6 +81,6 @@
 </section>
 <!-- Shopping Cart Section End -->
 
-<script type="text/javascript">
+<script type='text/javascript'>
 	
 </script>

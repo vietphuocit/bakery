@@ -41,10 +41,4 @@ public class WebController {
 
 		return "web/contact";
 	}
-
-	@RequestMapping(value = { "cart/", "cart" }, method = RequestMethod.GET)
-	public String cartPage(Model model) {
-
-		return "web/cart";
-	}
 }

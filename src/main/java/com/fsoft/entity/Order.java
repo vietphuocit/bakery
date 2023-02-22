@@ -53,6 +53,12 @@ public class Order {
 	public Order() {
 	}
 
+	public Order(OrderStatus orderStatus, User customer) {
+		super();
+		this.orderStatus = orderStatus;
+		this.customer = customer;
+	}
+
 	public Long getId() {
 		return id;
 	}
