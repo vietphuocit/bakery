@@ -32,7 +32,9 @@
 				</div>
 			</div>
 			<div class='col-lg-6'>
-				<div class='product__details__text'>
+				<form class='product__details__text'
+					action='<core:url value='/cart'/>' method="post">
+					<input class='d-none' name='id' value='${ product.id }' />
 					<div class='product__label'>${ product.category.name }</div>
 					<h4>${ product.name }</h4>
 					<h5 id='price'>${ price }</h5>
@@ -49,16 +51,14 @@
 					<div class='product__details__option'>
 						<div class='quantity'>
 							<div class='pro-qty'>
-								<input id='quantity' type='text' value='1'>
+								<input id='quantity' name='quantity' type='text' value='1'>
 							</div>
 						</div>
-						<button onClick='addToCart()' class='primary-btn'>Add to
-							cart</button>
-						<button class='heart__btn'>
-							<span class='icon_heart_alt'></span>
-						</button>
+						<button type="submit" class='primary-btn'>Add to cart</button>
+						<a href="#" class='heart__btn'> <span class='icon_heart_alt'></span>
+						</a>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 		<div class='product__details__tab'>
@@ -258,25 +258,5 @@
 			}
 			</core:forEach>
 		});
-	}
-
-	function addToCart() {
-		var quantity = document.getElementById("quantity").value;
-		var size = document.querySelector('input[name="size"]:checked').value;
-		
-		var productDetail = {
-			idProduct: '${ product.id }',
-			name: '${ product.name }',
-			image: '${ product.image }',
-			price: '${ price }',
-			size,
-			quantity,
-		}
-		
-		var cart = getCart();
-		
-		cart.push(productDetail);
-	    localStorage.setItem('cart', JSON.stringify(cart));
-	    console.log(cart);
 	}
 </script>
