@@ -9,7 +9,7 @@
 
 <!-- Favicon -->
 <link rel='icon' type='image/x-icon'
-	href='https://cdn-icons-png.flaticon.com/512/9480/9480880.png' />
+	href='<core:url value='/template/web/img/icon-tab.png' />' />
 
 <!-- Google Font -->
 <link
@@ -20,39 +20,38 @@
 	rel='stylesheet'>
 
 <!-- Css Styles -->
-<link
-	href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css'
+<link rel='stylesheet'
+	href='<core:url value = '/template/web/css/barfiller.css'/>'
+	type='text/css'>
+<link href='<core:url value = '/template/web/css/bootstrap.min.css'/>'
 	rel='stylesheet'>
 <link rel='stylesheet'
-	href='<core:url value = '/template/assets/css/flaticon.css'/>'
+	href='<core:url value = '/template/web/css/elegant-icons.css'/>'
 	type='text/css'>
 <link rel='stylesheet'
-	href='<core:url value = '/template/assets/css/barfiller.css'/>'
+	href='<core:url value = '/template/web/css/flaticon.css'/>'
 	type='text/css'>
 <link rel='stylesheet'
-	href='<core:url value = '/template/assets/css/magnific-popup.css'/>'
+	href='<core:url value = '/template/web/css/font-awesome.min.css'/>'
 	type='text/css'>
 <link rel='stylesheet'
-	href='<core:url value = '/template/assets/css/font-awesome.min.css'/>'
+	href='<core:url value = '/template/web/css/magnific-popup.css'/>'
 	type='text/css'>
 <link rel='stylesheet'
-	href='<core:url value = '/template/assets/css/elegant-icons.css'/>'
+	href='<core:url value = '/template/web/css/nice-select.css'/>'
 	type='text/css'>
 <link rel='stylesheet'
-	href='<core:url value = '/template/assets/css/nice-select.css'/>'
+	href='<core:url value = '/template/web/css/owl.carousel.min.css'/>'
 	type='text/css'>
 <link rel='stylesheet'
-	href='<core:url value = '/template/assets/css/owl.carousel.min.css'/>'
+	href='<core:url value = '/template/web/css/slicknav.min.css'/>'
 	type='text/css'>
 <link rel='stylesheet'
-	href='<core:url value = '/template/assets/css/slicknav.min.css'/>'
-	type='text/css'>
-<link rel='stylesheet'
-	href='<core:url value = '/template/assets/css/web.css'/>'
+	href='<core:url value = '/template/web/css/style.css'/>'
 	type='text/css'>
 </head>
 <body>
-
+	<fmt:setLocale value='vi_VN' />
 	<!-- Page Preloder -->
 	<div id='preloder'>
 		<div class='loader'></div>
@@ -64,23 +63,20 @@
 
 	<!-- Js Plugins -->
 	<script
-		src='<core:url value = '/template/assets/js/jquery-3.3.1.min.js'/>'></script>
+		src='<core:url value = '/template/web/js/jquery-3.3.1.min.js'/>'></script>
 	<script
-		src='<core:url value = '/template/assets/js/bootstrap.min.js'/>'></script>
+		src='<core:url value = '/template/web/js/jquery.nice-select.min.js'/>'></script>
 	<script
-		src='<core:url value = '/template/assets/js/jquery.nice-select.min.js'/>'></script>
+		src='<core:url value = '/template/web/js/jquery.barfiller.js'/>'></script>
 	<script
-		src='<core:url value = '/template/assets/js/jquery.barfiller.js'/>'></script>
+		src='<core:url value = '/template/web/js/jquery.magnific-popup.min.js'/>'></script>
 	<script
-		src='<core:url value = '/template/assets/js/jquery.magnific-popup.min.js'/>'></script>
+		src='<core:url value = '/template/web/js/owl.carousel.min.js'/>'></script>
 	<script
-		src='<core:url value = '/template/assets/js/jquery.slicknav.js'/>'></script>
-	<script
-		src='<core:url value = '/template/assets/js/owl.carousel.min.js'/>'></script>
-	<script
-		src='<core:url value = '/template/assets/js/jquery.nicescroll.min.js'/>'></script>
-
-	<script src='<core:url value = '/template/assets/js/main.js'/>'></script>
+		src='<core:url value = '/template/web/js/jquery.nicescroll.min.js'/>'></script>
+	<script src='<core:url value = '/template/web/js/jquery.slicknav.js'/>'></script>
+	<script src='<core:url value = '/template/web/js/bootstrap.min.js'/>'></script>
+	<script src='<core:url value = '/template/web/js/main.js'/>'></script>
 
 	<script type='text/javascript'>
 		/* Active navigation */

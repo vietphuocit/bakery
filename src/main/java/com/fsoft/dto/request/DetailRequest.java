@@ -1,18 +1,18 @@
 package com.fsoft.dto.request;
 
-public class OrderRequest {
+public class DetailRequest {
 	private Long id;
 	private int size;
 	private int quantity;
 
-	public OrderRequest(Long id, int size, int quantity) {
+	public DetailRequest(Long id, int size, int quantity) {
 		super();
 		this.id = id;
 		this.size = size;
 		this.quantity = quantity;
 	}
 
-	public OrderRequest() {
+	public DetailRequest() {
 		super();
 	}
 

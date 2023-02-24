@@ -2,19 +2,7 @@
 	pageEncoding='UTF-8'%>
 <%@ include file='/common/taglib.jsp'%>
 
-<!-- Breadcrumb Begin -->
-<div class="breadcrumb-option">
-	<div class="container">
-		<div class="row">
-			<div class="pl-3">
-				<div class="breadcrumb__links">
-					<a href="./index.html">Home</a> <span>Shop</span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Breadcrumb End -->
+<core:import url='/common/web/breadcrumb.jsp'></core:import>
 
 <!-- Shop Section Begin -->
 <section class='shop spad'>

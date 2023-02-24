@@ -9,44 +9,37 @@
 
 <!-- Favicon -->
 <link rel='icon' type='image/x-icon'
-	href='https://cdn-icons-png.flaticon.com/512/9480/9480880.png' />
-
-<!-- Fonts -->
-<link rel='preconnect' href='https://fonts.googleapis.com' />
-<!-- <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin /> -->
-<link
-	href='https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap'
-	rel='stylesheet' />
+	href='<core:url value='/template/web/img/icon-tab.png' />' />
 
 <!-- Icons. Uncomment required icon fonts -->
 <link rel='stylesheet'
-	href='<core:url value='/template/assets/vendor/fonts/boxicons.css'  />' />
+	href='<core:url value='/template/admin/vendor/fonts/boxicons.css'  />' />
 
 <!-- Core CSS -->
 <link rel='stylesheet'
-	href='<core:url value='/template/assets/vendor/css/core.css' />'
+	href='<core:url value='/template/admin/vendor/css/core.css' />'
 	class='template-customizer-core-css' />
 <link rel='stylesheet'
-	href='<core:url value='/template/assets/vendor/css/theme-default.css' />'
+	href='<core:url value='/template/admin/vendor/css/theme-default.css' />'
 	class='template-customizer-theme-css' />
 <link rel='stylesheet'
-	href='<core:url value='/template/assets/css/admin.css'  />' />
+	href='<core:url value='/template/admin/css/admin.css'  />' />
 
 <!-- Vendors CSS -->
 <link rel='stylesheet'
-	href='<core:url value='/template/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css'  />' />
+	href='<core:url value='/template/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css'  />' />
 
 <link rel='stylesheet'
-	href='<core:url value='/template/assets/vendor/libs/apex-charts/apex-charts.css' />' />
+	href='<core:url value='/template/admin/vendor/libs/apex-charts/apex-charts.css' />' />
 
 <!-- Page CSS -->
 
 <!-- Helpers -->
-<script src='<core:url value='/template/assets/vendor/js/helpers.js' />'></script>
+<script src='<core:url value='/template/admin/vendor/js/helpers.js' />'></script>
 
 <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
 <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-<script src='<core:url value='/template/assets/js/config.js' />'></script>
+<script src='<core:url value='/template/admin/js/config.js' />'></script>
 
 </head>
 <body>
@@ -67,7 +60,7 @@
 				<div class='app-brand demo'>
 					<a href='<core:url value='/admin'/>' class='app-brand-link'> <span
 						class='app-brand-logo demo'><img
-							src='<core:url value='/template/assets/img/logo-header.png' />'
+							src='<core:url value='/template/admin/img/logo-header.png' />'
 							alt=''></span> <span
 						class='app-brand-text demo menu-text fw-bolder ms-2'> </span>
 					</a>
@@ -127,7 +120,7 @@
 									data-bs-toggle='dropdown'>
 									<div class='avatar avatar-online'>
 										<img
-											src='<core:url value='/template/assets/img/avatars/1.png'/>'
+											src='<core:url value='/template/admin/img/avatars/1.png'/>'
 											class='w-px-40 h-auto rounded-circle' />
 									</div>
 								</div>
@@ -137,7 +130,7 @@
 												<div class='flex-shrink-0 me-3'>
 													<div class='avatar avatar-online'>
 														<img
-															src='<core:url value='/template/assets/img/avatars/1.png'/>'
+															src='<core:url value='/template/admin/img/avatars/1.png'/>'
 															class='w-px-40 h-auto rounded-circle' />
 													</div>
 												</div>
@@ -263,29 +256,29 @@
 	</script>
 
 	<!-- Core JS -->
-	<!-- build:js assets/vendor/js/core.js -->
+	<!-- build:js admin/vendor/js/core.js -->
 	<script
-		src='<core:url value='/template/assets/vendor/libs/jquery/jquery.js' />'></script>
+		src='<core:url value='/template/admin/vendor/libs/jquery/jquery.js' />'></script>
 	<script
-		src='<core:url value='/template/assets/vendor/libs/popper/popper.js' />'></script>
+		src='<core:url value='/template/admin/vendor/libs/popper/popper.js' />'></script>
 	<script
-		src='<core:url value='/template/assets/vendor/js/bootstrap.js' />'></script>
+		src='<core:url value='/template/admin/vendor/js/bootstrap.js' />'></script>
 	<script
-		src='<core:url value='/template/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js' />'></script>
+		src='<core:url value='/template/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.js' />'></script>
 
-	<script src='<core:url value='/template/assets/vendor/js/menu.js' />'></script>
+	<script src='<core:url value='/template/admin/vendor/js/menu.js' />'></script>
 	<!-- endbuild -->
 
 	<!-- Vendors JS -->
 	<script
-		src='<core:url value='/template/assets/vendor/libs/apex-charts/apexcharts.js' />'></script>
+		src='<core:url value='/template/admin/vendor/libs/apex-charts/apexcharts.js' />'></script>
 
 	<!-- Main JS -->
-	<script src='<core:url value='/template/assets/js/main.js' />'></script>
+	<script src='<core:url value='/template/admin/js/main.js' />'></script>
 
 	<!-- Page JS -->
 	<script
-		src='<core:url value='/template/assets/js/dashboards-analytics.js' />'></script>
+		src='<core:url value='/template/admin/js/dashboards-analytics.js' />'></script>
 
 	<!-- Place this tag in your head or just before your close body tag. -->
 	<!-- <script async defer src='https://buttons.github.io/buttons.js'></script> -->

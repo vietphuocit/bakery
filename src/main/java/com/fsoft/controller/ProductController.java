@@ -75,7 +75,7 @@ public class ProductController {
 
 	@RequestMapping(value = "/product", method = RequestMethod.GET)
 	public String pageProduct(Model model) {
-		
+
 		model.addAttribute("products", productService.findAllOrderASCById());
 		model.addAttribute("categories", categoryService.findAllOrderASCById());
 
@@ -84,9 +84,17 @@ public class ProductController {
 
 	@RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
 	public String pageProductDetail(Model model, @PathVariable("id") Long id) {
-		
+
 		model.addAttribute("product", productService.findByPrimaryKeyProductId(id));
-		
+
 		return "web/productDetails";
+	}
+
+	@RequestMapping(value = "/product/search", method = RequestMethod.POST)
+	public String findByKeyword(Model model, @ModelAttribute("keyword") String keyword) {
+
+		System.out.println(keyword);
+
+		return "web/search";
 	}
 }

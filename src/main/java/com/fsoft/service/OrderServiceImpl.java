@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fsoft.dto.request.OrderRequest;
+import com.fsoft.dto.request.DetailRequest;
 import com.fsoft.entity.Order;
 import com.fsoft.entity.OrderDetails;
 import com.fsoft.entity.OrderStatus;
@@ -36,7 +36,7 @@ public class OrderServiceImpl implements OrderService {
 	UserRepository userRepository;
 
 	@Override
-	public boolean addToCart(OrderRequest orderRequest, String username) {
+	public boolean addToCart(DetailRequest orderRequest, String username) {
 		OrderStatus orderStatus = orderStatusRepository.findByName("giỏ hàng");
 		Order oldOrder = orderRepository.findByOrderStatusAndCustomer_username(orderStatus, username);
 		Product product = productRepository
