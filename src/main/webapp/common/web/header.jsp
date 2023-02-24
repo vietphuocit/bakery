@@ -1,10 +1,5 @@
-<<<<<<< Updated upstream
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-=======
 <%@ page language='java' contentType='text/html; charset=UTF-8'
 	pageEncoding='UTF-8'%>
->>>>>>> Stashed changes
 <%@ include file='/common/taglib.jsp'%>
 
 <!-- Header Section Begin -->
@@ -16,26 +11,6 @@
 					<div class='header__top__inner'>
 						<div class='header__top__left'>
 							<ul>
-<<<<<<< Updated upstream
-								<li>USD <span class='arrow_carrot-down'></span>
-									<ul>
-										<li>EUR</li>
-										<li>USD</li>
-									</ul>
-								</li>
-								<li>ENG <span class='arrow_carrot-down'></span>
-									<ul>
-										<li>Spanish</li>
-										<li>ENG</li>
-									</ul>
-								</li>
-								<li><a href='#'>Sign in</a> <span class='arrow_carrot-down'></span></li>
-							</ul>
-						</div>
-						<div class='header__logo'>
-							<a href=''><img
-								src='<core:url value='/template/assets/img/logo-header.png' />'
-=======
 								<li>VN <span class='arrow_carrot-down'></span>
 									<ul>
 										<li>VN</li>
@@ -54,30 +29,19 @@
 						<div class='header__logo'>
 							<a href='<core:url value='/' />'><img
 								src='<core:url value='/template/web/img/logo-header.png' />'
->>>>>>> Stashed changes
 								alt=''></a>
 						</div>
 						<div class='header__top__right'>
 							<div class='header__top__right__links'>
 								<a href='#' class='search-switch'><img
-<<<<<<< Updated upstream
-									src='<core:url value='/template/assets/img/icon/search.png'/>'
-									alt=''></a> <a href='#'><img
-									src='<core:url value='/template/assets/img/icon/heart.png'/>'
-=======
 									src='<core:url value='/template/web/img/icon/search.png'/>'
 									alt=''></a> <a href='<core:url value='/wishlist'/>'><img
 									src='<core:url value='/template/web/img/icon/heart.png'/>'
->>>>>>> Stashed changes
 									alt=''></a>
 							</div>
 							<div class='header__top__right__cart'>
 								<a href='<core:url value='/cart' />'><img
-<<<<<<< Updated upstream
-									src='<core:url value='/template/assets/img/icon/cart.png'/>'
-=======
 									src='<core:url value='/template/web/img/icon/cart.png'/>'
->>>>>>> Stashed changes
 									alt=''> <span>0</span></a>
 								<div class='cart__price'>
 									Cart: <span>$0.00</span>
@@ -108,9 +72,7 @@
 		</div>
 	</div>
 </header>
-<<<<<<< Updated upstream
-<!-- Header Section End -->
-=======
+
 <!-- Header Section End -->
 
 <!-- Search Begin -->
@@ -125,4 +87,3 @@
 	</div>
 </div>
 <!-- Search End -->
->>>>>>> Stashed changes

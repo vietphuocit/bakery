@@ -3,11 +3,8 @@
 <%@ include file='/common/taglib.jsp'%>
 
 <!-- Footer Section Begin -->
-<<<<<<< Updated upstream
-<footer class='footer set-bg'>
-=======
+
 <footer class='footer'>
->>>>>>> Stashed changes
 	<div class='container'>
 		<div class='row'>
 			<div class='col-lg-4 col-md-6 col-sm-6'>
@@ -23,13 +20,9 @@
 			<div class='col-lg-4 col-md-6 col-sm-6'>
 				<div class='footer__about'>
 					<div class='footer__logo'>
-						<a href='#'><img
-<<<<<<< Updated upstream
-							src='<core:url value='/template/assets/img/logo-footer.png' />'
-=======
-							src='<core:url value='/template/web/img/logo-footer.png' />'
->>>>>>> Stashed changes
-							alt=''></a>
+						<a href='#'> <!--  -->
+							<img src='<core:url
+								value='/template/web/img/logo-footer.png' />' /></a>
 					</div>
 					<p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do
 						eiusmod tempor incididunt ut labore dolore magna aliqua.</p>
