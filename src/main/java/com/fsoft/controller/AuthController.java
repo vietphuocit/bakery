@@ -23,6 +23,7 @@ import com.fsoft.entity.Role;
 import com.fsoft.entity.User;
 import com.fsoft.repository.RoleRepository;
 import com.fsoft.repository.UserRepository;
+import com.fsoft.utils.ControllerUtils;
 
 @Controller
 public class AuthController {
@@ -36,9 +37,9 @@ public class AuthController {
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 
-	@RequestMapping(value = "register", method = RequestMethod.GET)
+	@RequestMapping(value = { "login", "register" }, method = RequestMethod.GET)
 	public String registerPage(Model model, Principal principal) {
-		return principal == null ? "auth/register" : "redirect:/";
+		return principal == null ? "auth/auth" : "redirect:/";
 	}
 
 	@RequestMapping(value = "register", method = RequestMethod.POST)
@@ -52,15 +53,11 @@ public class AuthController {
 
 		try {
 			userRepository.save(user);
-			return "redirect:/register?success";
+			ControllerUtils.addAttributeToast(model, "Register success!", "Successful account registration", "success");
 		} catch (Exception e) {
-			return "redirect:/register?failed";
+			ControllerUtils.addAttributeToast(model, "Register failed!", "Account already exists", "error");
 		}
-	}
-
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String loginPage(Model model, Principal principal) {
-		return principal == null ? "auth/login" : "redirect:/";
+		return "auth/auth";
 	}
 
 	@RequestMapping(value = "logout", method = RequestMethod.GET)

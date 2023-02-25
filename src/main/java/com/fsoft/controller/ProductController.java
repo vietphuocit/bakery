@@ -33,9 +33,9 @@ public class ProductController {
 	public String createProduct(Model model, @ModelAttribute ProductRequest productRequest) {
 
 		if (productService.createProduct(productRequest)) {
-			ControllerUtils.addAttributeNotification(model, "Sản phẩm", "Thêm sản phẩm thành công.", false);
+			ControllerUtils.addAttributeToast(model, "Sản phẩm", "Thêm sản phẩm thành công.", "success");
 		} else {
-			ControllerUtils.addAttributeNotification(model, "Sản phẩm", "Có lỗi khi thêm sản phẩm.", true);
+			ControllerUtils.addAttributeToast(model, "Sản phẩm", "Có lỗi khi thêm sản phẩm.", "error");
 		}
 
 		model.addAttribute("products", productService.findAllOrderASCById());
@@ -48,9 +48,9 @@ public class ProductController {
 			@PathVariable(value = "size") int size) {
 
 		if (productService.deleteProduct(id, size)) {
-			ControllerUtils.addAttributeNotification(model, "Sản phẩm", "Xóa sản phẩm thành công.", false);
+			ControllerUtils.addAttributeToast(model, "Sản phẩm", "Xóa sản phẩm thành công.", "success");
 		} else {
-			ControllerUtils.addAttributeNotification(model, "Sản phẩm", "Có lỗi khi xóa sản phẩm.", true);
+			ControllerUtils.addAttributeToast(model, "Sản phẩm", "Có lỗi khi xóa sản phẩm.", "error");
 		}
 
 		model.addAttribute("products", productService.findAllOrderASCById());
@@ -63,9 +63,9 @@ public class ProductController {
 			@ModelAttribute ProductRequest productRequest) {
 
 		if (productService.updateProduct(id, productRequest)) {
-			ControllerUtils.addAttributeNotification(model, "Sản phẩm", "Cập nhật sản phẩm thành công.", false);
+			ControllerUtils.addAttributeToast(model, "Sản phẩm", "Cập nhật sản phẩm thành công.", "success");
 		} else {
-			ControllerUtils.addAttributeNotification(model, "Sản phẩm", "Có lỗi khi cập nhật sản phẩm.", true);
+			ControllerUtils.addAttributeToast(model, "Sản phẩm", "Có lỗi khi cập nhật sản phẩm.", "error");
 		}
 
 		model.addAttribute("products", productService.findAllOrderASCById());

@@ -2,6 +2,7 @@
 	pageEncoding='UTF-8'%>
 <%@ include file='/common/taglib.jsp'%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,104 +10,52 @@
 
 <title>Auth</title>
 
-<!-- Favicon -->
 <link rel='icon' type='image/x-icon'
 	href='<core:url value='/template/web/img/icon-tab.png' />' />
-
-<!-- Icons. Uncomment required icon fonts -->
+<link href='https://cdn.lineicons.com/4.0/lineicons.css'
+	rel='stylesheet' />
 <link rel='stylesheet'
-	href='<core:url value='/template/admin/vendor/fonts/boxicons.css' />' />
-
-<!-- Core CSS -->
+	href='<core:url value='/template/auth/css/style.css' />' />
 <link rel='stylesheet'
-	href='<core:url value='/template/admin/vendor/css/core.css' />'
-	class='template-customizer-core-css' />
+	href='<core:url value='/template/auth/css/toast.css' />' />
 <link rel='stylesheet'
-	href='<core:url value='/template/admin/vendor/css/theme-default.css' />'
-	class='template-customizer-theme-css' />
-<link rel='stylesheet'
-	href='<core:url value='/template/admin/css/admin.css'  />' />
+	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'
+	integrity='sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=='
+	crossorigin='anonymous' />
 
-<!-- Vendors CSS -->
-<link rel='stylesheet'
-	href='<core:url value='/template/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css' />' />
-
-<!-- Page CSS -->
-<!-- Page -->
-<link rel='stylesheet'
-	href='<core:url value='/template/admin/vendor/css/pages/page-auth.css' />' />
-<!-- Helpers -->
-<script src='<core:url value='/template/admin/vendor/js/helpers.js'/>'></script>
-
-<!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-<!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-
-<script src='<core:url value='/template/admin/js/config.js'/>'></script>
 </head>
 <body>
+	<core:if test='${type != null}'>
+		<core:set var='title' value='${title}' />
+		<core:set var='message' value='${message}' />
+		<core:set var='type' value='${type}' />
+	</core:if>
+
 	<dec:body />
-	<div id='toast-auth'
-		class='bs-toast toast fade m-4 toast-placement-ex top-0 end-0'
-		role='alert' aria-live='assertive' aria-atomic='true'
-		data-delay='2000'>
-		<div class='toast-header'>
-			<i class='bx bx-bell me-2'></i>
-			<div class='me-auto fw-semibold' id='toast-title'></div>
-			<button type='button' class='btn-close' data-bs-dismiss='toast'
-				aria-label='Close'></button>
-		</div>
-		<div class='toast-body' id='toast-notification'></div>
-	</div>
-
+	<div id='toast'></div>
+	<script
+		src='<core:url value = '/template/web/js/jquery-3.3.1.min.js'/>'></script>
+	<script src='<core:url value='/template/auth/js/script.js' />'></script>
 	<script type='text/javascript'>
-		var toast = document.getElementById('toast-auth');
-		var title = document.getElementById('toast-title');
-		var notification = document.getElementById('toast-notification');
+		var href = document.location.href;
 
-		if (window.location.href.indexOf('login?failed') != -1) {
-			title.innerText = 'Đăng nhập thất bại';
-			notification.innerText = 'Sai tài khoản hoặc mật khẩu.';
-			toast.classList.add('bg-danger');
-			toast.classList.add('show');
-		} else if (window.location.href.indexOf('register?failed') != -1) {
-			title.innerText = 'Đăng ký thất bại';
-			notification.innerText = 'Tài khoản đã tồn tại trong hệ thống.';
-			toast.classList.add('bg-danger');
-			toast.classList.add('show');
-		} else if (window.location.href.indexOf('register?success') != -1) {
-			title.innerText = 'Đăng ký thành công';
-			notification.innerHTML = "Bạn đã đăng ký thành công, chọn <a href='/bakery/login'>Sign in</a> để đăng nhập.";
-			toast.classList.add('bg-success');
-			toast.classList.add('show');
+		if (href.indexOf('register') != -1) {
+			container.classList.add('right-panel-active');
+			if ('${ type }' != '')
+				toast({
+					title : '${title}',
+					message : '${message}',
+					type : '${type}',
+					duration : 2000
+				});
+		} else if (href.indexOf('login?failed') != -1) {
+			toast({
+				title : 'Login failed!',
+				message : 'Incorrect account or password.',
+				type : 'error',
+				duration : 2000
+			});
 		}
-
-		setTimeout(function() {
-			toast.classList.remove('show');
-		}, 3000);
 	</script>
-	<!-- Core JS -->
-	<!-- build:js admin/vendor/js/core.js -->
-	<script
-		src='<core:url value='/template/admin/vendor/libs/jquery/jquery.js'/>'></script>
-	<script
-		src='<core:url value='/template/admin/vendor/libs/popper/popper.js'/>'></script>
-	<script
-		src='<core:url value='/template/admin/vendor/js/bootstrap.js'/>'></script>
-	<script
-		src='<core:url value='/template/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.js'/>'></script>
-
-	<script src='<core:url value='/template/admin/vendor/js/menu.js'/>'></script>
-	<!-- end build -->
-
-	<!-- Vendors JS -->
-
-	<!-- Main JS -->
-	<script src='<core:url value='/template/admin/js/main.js'/>'></script>
-
-	<!-- Page JS -->
-	<script src='<core:url value='/template/admin/js/ui-toasts.js'/>'></script>
-
-	<!-- Place this tag in your head or just before your close body tag. -->
-	<!-- <script async defer src='https://buttons.github.io/buttons.js'></script> -->
 </body>
 </html>

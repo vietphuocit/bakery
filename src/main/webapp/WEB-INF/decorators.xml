@@ -4,6 +4,8 @@
 	<decorator name="auth" page="auth.jsp">
 		<pattern>/login</pattern>
 		<pattern>/register</pattern>
+		<pattern>/login/**</pattern>
+		<pattern>/register/**</pattern>
 	</decorator>
 	<decorator name="admin" page="admin.jsp">
 		<pattern>/admin</pattern>

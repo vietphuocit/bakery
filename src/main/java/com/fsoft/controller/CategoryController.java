@@ -28,9 +28,9 @@ public class CategoryController {
 	@RequestMapping(value = { "admin/category" }, method = RequestMethod.POST)
 	public String createCategory(Model model, @ModelAttribute Category category) {
 		if (categoryService.createCategory(category)) {
-			ControllerUtils.addAttributeNotification(model, "Danh mục", "Thêm danh mục thành công.", false);
+			ControllerUtils.addAttributeToast(model, "Danh mục", "Thêm danh mục thành công.", "success");
 		} else {
-			ControllerUtils.addAttributeNotification(model, "Danh mục", "Danh mục đã tồn tại.", true);
+			ControllerUtils.addAttributeToast(model, "Danh mục", "Danh mục đã tồn tại.", "error");
 		}
 		model.addAttribute("categories", categoryService.findAllOrderASCById());
 		return "admin/category";
@@ -39,9 +39,9 @@ public class CategoryController {
 	@RequestMapping(value = { "admin/category/{id}" }, method = RequestMethod.POST)
 	public String updateCategory(Model model, @ModelAttribute Category category, @PathVariable(value = "id") Long id) {
 		if (categoryService.updateCategoryById(id, category.getName())) {
-			ControllerUtils.addAttributeNotification(model, "Danh mục", "Sửa danh mục thành công.", false);
+			ControllerUtils.addAttributeToast(model, "Danh mục", "Sửa danh mục thành công.", "success");
 		} else {
-			ControllerUtils.addAttributeNotification(model, "Danh mục", "Lỗi khi cập nhật danh mục.", true);
+			ControllerUtils.addAttributeToast(model, "Danh mục", "Lỗi khi cập nhật danh mục.", "error");
 		}
 		model.addAttribute("categories", categoryService.findAllOrderASCById());
 		return "admin/category";
@@ -50,9 +50,9 @@ public class CategoryController {
 	@RequestMapping(value = { "admin/category/{id}" }, method = RequestMethod.GET)
 	public String deleteCategory(Model model, @PathVariable(value = "id") Long id) {
 		if (categoryService.deleteCategoryById(id)) {
-			ControllerUtils.addAttributeNotification(model, "Danh mục", "Xóa danh mục thành công.", false);
+			ControllerUtils.addAttributeToast(model, "Danh mục", "Xóa danh mục thành công.", "success");
 		} else {
-			ControllerUtils.addAttributeNotification(model, "Danh mục", "Lỗi khi xóa danh mục.", true);
+			ControllerUtils.addAttributeToast(model, "Danh mục", "Lỗi khi xóa danh mục.", "error");
 		}
 		model.addAttribute("categories", categoryService.findAllOrderASCById());
 		return "admin/category";
