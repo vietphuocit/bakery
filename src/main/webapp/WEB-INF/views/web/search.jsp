@@ -1,7 +1,6 @@
-<%@ page language='java' contentType='text/html; charset=UTF-8'
-	pageEncoding='UTF-8'%>
-<%@ include file='/common/taglib.jsp'%>
+<%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8' %>
+	<%@ include file='/common/taglib.jsp' %>
 
-<core:import url='/common/web/breadcrumb.jsp'></core:import>
+		<core:import url='/common/web/breadcrumb.jsp'></core:import>
 
-trang tim kiem
+		trang tim kiem

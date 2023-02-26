@@ -41,7 +41,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<Product> findAllOrderASCById() {
-		return productRepository.findAllByOrderByPrimaryKeyProductAsc();
+		return productRepository.findAllByGroupByName();
 	}
 
 	@Override

@@ -4,12 +4,12 @@ function toast({ title = "", message = "", type = "info", duration = 3000 }) {
 		const toast = document.createElement("div");
 
 		// Auto remove toast
-		const autoRemoveId = setTimeout(function() {
+		const autoRemoveId = setTimeout(function () {
 			main.removeChild(toast);
 		}, duration + 1000);
 
 		// Remove toast when clicked
-		toast.onclick = function(e) {
+		toast.onclick = function (e) {
 			if (e.target.closest(".toast__close")) {
 				main.removeChild(toast);
 				clearTimeout(autoRemoveId);
@@ -44,9 +44,9 @@ function toast({ title = "", message = "", type = "info", duration = 3000 }) {
 	}
 }
 
-(function($) {
+(function ($) {
 
-	$('.set-bg').each(function() {
+	$('.set-bg').each(function () {
 		var bg = $(this).data('setbg');
 		$(this).css('background-image', 'url(' + bg + ')');
 	});
@@ -59,7 +59,7 @@ function toast({ title = "", message = "", type = "info", duration = 3000 }) {
 		container.classList.remove('right-panel-active');
 	});
 
-	$('#loginForm').submit(function(event) {
+	$('#loginForm').submit(function (event) {
 		event.preventDefault();
 
 		const username = $('#usernameLogin').val().trim();
@@ -79,7 +79,7 @@ function toast({ title = "", message = "", type = "info", duration = 3000 }) {
 		$(this).unbind('submit').submit();
 	});
 
-	$('#registerForm').submit(function(event) {
+	$('#registerForm').submit(function (event) {
 		event.preventDefault();
 
 		const fullName = $('#nameRegister').val().trim();
@@ -101,7 +101,7 @@ function toast({ title = "", message = "", type = "info", duration = 3000 }) {
 			$('#passwordRegister').css('box-shadow', '0 0 4px 0px red')
 			return;
 		}
- 
+
 		if (rePassword !== password) {
 			$('#rePasswordRegister').css('box-shadow', '0 0 4px 0px red')
 			return;
@@ -111,8 +111,8 @@ function toast({ title = "", message = "", type = "info", duration = 3000 }) {
 		$(this).unbind('submit').submit();
 	});
 
-	$('input').each(function() {
-		$(this).on(('input'), function() {
+	$('input').each(function () {
+		$(this).on(('input'), function () {
 			$(this).css('box-shadow', 'none');
 		});
 	});
