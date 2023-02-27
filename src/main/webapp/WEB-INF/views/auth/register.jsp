@@ -8,7 +8,7 @@
 						<div class='card'>
 							<div class='card-body'>
 								<div class='app-brand justify-content-center'>
-									<a href='<core:url value=' /' />' class='app-brand-link gap-2'>
+									<a href='<core:url value='/'/>' class='app-brand-link gap-2'>
 									<span class='app-brand-logo demo'> </span> <span
 										class='app-brand-text demo text-body fw-bolder'>Sneat</span>
 									</a>
@@ -31,7 +31,7 @@
 										<div class='input-group input-group-merge'>
 											<input type='password' id='password' class='form-control' name='password'
 												placeholder='••••••••••' aria-describedby='password' required
-												onblur='confirmPwBlur()' />
+												onblur='confirmPwBlur()'/>
 											<span class='input-group-text cursor-pointer'><i
 													class='bx bx-hide'></i></span>
 										</div>
@@ -42,7 +42,7 @@
 										<div class='input-group input-group-merge'>
 											<input type='password' id='confirm-password' class='form-control'
 												placeholder='••••••••••' aria-describedby='password' required
-												onblur='confirmPwBlur()' />
+												onblur='confirmPwBlur()'/>
 											<span class='input-group-text cursor-pointer'><i
 													class='bx bx-hide'></i></span>
 										</div>
@@ -62,7 +62,7 @@
 								</form>
 
 								<p class='text-center'>
-									<span>Already have an account?</span> <a href='<core:url value=' /login' />'>
+									<span>Already have an account?</span> <a href='<core:url value='/login'/>'>
 									<span>Sign in</span>
 									</a>
 								</p>

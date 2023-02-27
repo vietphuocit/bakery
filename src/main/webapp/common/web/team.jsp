@@ -19,8 +19,7 @@
 				</div>
 				<div class='row'>
 					<div class='col-lg-3 col-md-6 col-sm-6'>
-						<div class='team__item set-bg' data-setbg='<core:url value='
-							/template/web/img/team/team-1.jpg' />'>
+						<div class='team__item set-bg' data-setbg='<core:url value='/template/web/img/team/team-1.jpg'/>'>
 						<div class='team__item__text'>
 							<h6>Randy Butler</h6>
 							<span>Decorater</span>
@@ -34,7 +33,7 @@
 					</div>
 				</div>
 				<div class='col-lg-3 col-md-6 col-sm-6'>
-					<div class='team__item set-bg' data-setbg='<core:url value=' /template/web/img/team/team-2.jpg' />'>
+					<div class='team__item set-bg' data-setbg='<core:url value='/template/web/img/team/team-2.jpg'/>'>
 					<div class='team__item__text'>
 						<h6>Randy Butler</h6>
 						<span>Decorater</span>
@@ -48,7 +47,7 @@
 				</div>
 			</div>
 			<div class='col-lg-3 col-md-6 col-sm-6'>
-				<div class='team__item set-bg' data-setbg='<core:url value=' /template/web/img/team/team-3.jpg' />'>
+				<div class='team__item set-bg' data-setbg='<core:url value='/template/web/img/team/team-3.jpg'/>'>
 				<div class='team__item__text'>
 					<h6>Randy Butler</h6>
 					<span>Decorater</span>
@@ -62,7 +61,7 @@
 			</div>
 			</div>
 			<div class='col-lg-3 col-md-6 col-sm-6'>
-				<div class='team__item set-bg' data-setbg='<core:url value=' /template/web/img/team/team-4.jpg' />'>
+				<div class='team__item set-bg' data-setbg='<core:url value='/template/web/img/team/team-4.jpg'/>'>
 				<div class='team__item__text'>
 					<h6>Randy Butler</h6>
 					<span>Decorater</span>

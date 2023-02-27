@@ -51,7 +51,7 @@
 											product.name }</a>
 									</h6>
 									<div class='product__item__price'>
-										<fmt:formatNumber value='${ product.price }' type='currency' />
+										<fmt:formatNumber value='${ product.price }' type='currency'/>
 									</div>
 									<div class='cart_add'>
 										<a href='/addtocart'>Add to cart</a>

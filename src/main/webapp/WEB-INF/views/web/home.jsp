@@ -4,7 +4,7 @@
 		<!-- Hero Section Begin -->
 		<section class='hero'>
 			<div class='hero__slider owl-carousel'>
-				<div class='hero__item set-bg' data-setbg='<core:url value=' /template/web/img/hero/hero-1.jpg' />'>
+				<div class='hero__item set-bg' data-setbg='<core:url value='/template/web/img/hero/hero-1.jpg'/>'>
 				<div class='container'>
 					<div class='row d-flex justify-content-center'>
 						<div class='col-lg-8'>
@@ -16,7 +16,7 @@
 					</div>
 				</div>
 			</div>
-			<div class='hero__item set-bg' data-setbg='<core:url value=' /template/web/img/hero/hero-2.jpg' />'>
+			<div class='hero__item set-bg' data-setbg='<core:url value='/template/web/img/hero/hero-2.jpg'/>'>
 			<div class='container'>
 				<div class='row d-flex justify-content-center'>
 					<div class='col-lg-8'>
@@ -32,7 +32,7 @@
 		</section>
 		<!-- Hero Section End -->
 
-		<core:import url='/common/web/about.jsp' />
+		<core:import url='/common/web/about.jsp'/>
 
 		<!-- Categories Section Begin -->
 		<div class='categories'>
@@ -87,8 +87,7 @@
 				<div class='row'>
 					<div class='col-lg-3 col-md-6 col-sm-6'>
 						<div class='product__item'>
-							<div class='product__item__pic set-bg' data-setbg='<core:url value='
-								/template/web/img/shop/product-1.jpg' />'>
+							<div class='product__item__pic set-bg' data-setbg='<core:url value='/template/web/img/shop/product-1.jpg'/>'>
 							<div class='product__label'>
 								<span>Cupcake</span>
 							</div>
@@ -106,8 +105,7 @@
 				</div>
 				<div class='col-lg-3 col-md-6 col-sm-6'>
 					<div class='product__item'>
-						<div class='product__item__pic set-bg' data-setbg='<core:url value='
-							/template/web/img/shop/product-2.jpg' />'>
+						<div class='product__item__pic set-bg' data-setbg='<core:url value='/template/web/img/shop/product-2.jpg'/>'>
 						<div class='product__label'>
 							<span>Cupcake</span>
 						</div>
@@ -125,8 +123,7 @@
 			</div>
 			<div class='col-lg-3 col-md-6 col-sm-6'>
 				<div class='product__item'>
-					<div class='product__item__pic set-bg' data-setbg='<core:url value='
-						/template/web/img/shop/product-3.jpg' />'>
+					<div class='product__item__pic set-bg' data-setbg='<core:url value='/template/web/img/shop/product-3.jpg'/>'>
 					<div class='product__label'>
 						<span>Cupcake</span>
 					</div>
@@ -144,8 +141,7 @@
 			</div>
 			<div class='col-lg-3 col-md-6 col-sm-6'>
 				<div class='product__item'>
-					<div class='product__item__pic set-bg' data-setbg='<core:url value='
-						/template/web/img/shop/product-4.jpg' />'>
+					<div class='product__item__pic set-bg' data-setbg='<core:url value='/template/web/img/shop/product-4.jpg'/>'>
 					<div class='product__label'>
 						<span>Cupcake</span>
 					</div>
@@ -163,8 +159,7 @@
 			</div>
 			<div class='col-lg-3 col-md-6 col-sm-6'>
 				<div class='product__item'>
-					<div class='product__item__pic set-bg' data-setbg='<core:url value='
-						/template/web/img/shop/product-5.jpg' />'>
+					<div class='product__item__pic set-bg' data-setbg='<core:url value='/template/web/img/shop/product-5.jpg'/>'>
 					<div class='product__label'>
 						<span>Cupcake</span>
 					</div>
@@ -182,8 +177,7 @@
 			</div>
 			<div class='col-lg-3 col-md-6 col-sm-6'>
 				<div class='product__item'>
-					<div class='product__item__pic set-bg' data-setbg='<core:url value='
-						/template/web/img/shop/product-6.jpg' />'>
+					<div class='product__item__pic set-bg' data-setbg='<core:url value='/template/web/img/shop/product-6.jpg'/>'>
 					<div class='product__label'>
 						<span>Cupcake</span>
 					</div>
@@ -201,8 +195,7 @@
 			</div>
 			<div class='col-lg-3 col-md-6 col-sm-6'>
 				<div class='product__item'>
-					<div class='product__item__pic set-bg' data-setbg='<core:url value='
-						/template/web/img/shop/product-7.jpg' />'>
+					<div class='product__item__pic set-bg' data-setbg='<core:url value='/template/web/img/shop/product-7.jpg'/>'>
 					<div class='product__label'>
 						<span>Cupcake</span>
 					</div>
@@ -220,8 +213,7 @@
 			</div>
 			<div class='col-lg-3 col-md-6 col-sm-6'>
 				<div class='product__item'>
-					<div class='product__item__pic set-bg' data-setbg='<core:url value='
-						/template/web/img/shop/product-8.jpg' />'>
+					<div class='product__item__pic set-bg' data-setbg='<core:url value='/template/web/img/shop/product-8.jpg'/>'>
 					<div class='product__label'>
 						<span>Cupcake</span>
 					</div>
@@ -242,9 +234,9 @@
 		</section>
 		<!-- Product Section End -->
 
-		<core:import url='/common/web/class.jsp' />
-		<core:import url='/common/web/team.jsp' />
-		<core:import url='/common/web/testimonial.jsp' />
+		<core:import url='/common/web/class.jsp'/>
+		<core:import url='/common/web/team.jsp'/>
+		<core:import url='/common/web/testimonial.jsp'/>
 
 		<!-- Instagram Section Begin -->
 		<section class='instagram spad'>
@@ -265,37 +257,37 @@
 						<div class='row'>
 							<div class='col-lg-4 col-md-4 col-sm-4 col-6'>
 								<div class='instagram__pic'>
-									<img src='<core:url value=' /template/web/img/instagram/instagram-1.jpg' />'
+									<img src='<core:url value='/template/web/img/instagram/instagram-1.jpg'/>'
 									alt=''>
 								</div>
 							</div>
 							<div class='col-lg-4 col-md-4 col-sm-4 col-6'>
 								<div class='instagram__pic middle__pic'>
-									<img src='<core:url value=' /template/web/img/instagram/instagram-2.jpg' />'
+									<img src='<core:url value='/template/web/img/instagram/instagram-2.jpg'/>'
 									alt=''>
 								</div>
 							</div>
 							<div class='col-lg-4 col-md-4 col-sm-4 col-6'>
 								<div class='instagram__pic'>
-									<img src='<core:url value=' /template/web/img/instagram/instagram-3.jpg' />'
+									<img src='<core:url value='/template/web/img/instagram/instagram-3.jpg'/>'
 									alt=''>
 								</div>
 							</div>
 							<div class='col-lg-4 col-md-4 col-sm-4 col-6'>
 								<div class='instagram__pic'>
-									<img src='<core:url value=' /template/web/img/instagram/instagram-4.jpg' />'
+									<img src='<core:url value='/template/web/img/instagram/instagram-4.jpg'/>'
 									alt=''>
 								</div>
 							</div>
 							<div class='col-lg-4 col-md-4 col-sm-4 col-6'>
 								<div class='instagram__pic middle__pic'>
-									<img src='<core:url value=' /template/web/img/instagram/instagram-5.jpg' />'
+									<img src='<core:url value='/template/web/img/instagram/instagram-5.jpg'/>'
 									alt=''>
 								</div>
 							</div>
 							<div class='col-lg-4 col-md-4 col-sm-4 col-6'>
 								<div class='instagram__pic'>
-									<img src='<core:url value=' /template/web/img/instagram/instagram-3.jpg' />'
+									<img src='<core:url value='/template/web/img/instagram/instagram-3.jpg'/>'
 									alt=''>
 								</div>
 							</div>

@@ -1,7 +1,7 @@
 <%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8' %>
 	<%@ include file='/common/taglib.jsp' %>
 
-		<core:set var='price' value='${ product.productDetails.get(0).price }' />
+		<core:set var='price' value='${ product.productDetails.get(0).price }'/>
 
 		<core:import url='/common/web/breadcrumb.jsp'></core:import>
 
@@ -12,24 +12,24 @@
 					<div class='col-lg-6'>
 						<div class='product__details__img'>
 							<div class='product__details__big__img'>
-								<img class='big_img' src='<core:url value=' /uploads/${ product.image }' />' alt=''>
+								<img class='big_img' src='<core:url value='/uploads/${ product.image }'/>' alt=''>
 							</div>
 						</div>
 					</div>
 					<div class='col-lg-6'>
-						<div class='product__details__text' action='<core:url value=' /cart' />' method="post">
-						<input class='d-none' name='id' value='${ product.id }' />
+						<div class='product__details__text' action='<core:url value='/cart'/>' method="post">
+						<input class='d-none' name='id' value='${ product.id }'/>
 						<div class='product__label'>${ product.category.name }</div>
 						<h4>${ product.name }</h4>
 						<h5 id='price'>
 							Price:
-							<fmt:formatNumber value='${ price }' type='currency' />
+							<fmt:formatNumber value='${ price }' type='currency'/>
 						</h5>
 						<ul id='ul-size'>
 							<li><span>Size</span></li>
 							<core:forEach var='productDetail' items='${ product.productDetails }'>
 								<li><input class='btn-check d-none' id='id-${ productDetail.size }' type='radio'
-										name='size' value='${ productDetail.size }' /> <label class='btn btn-radio-size'
+										name='size' value='${ productDetail.size }'/> <label class='btn btn-radio-size'
 										for='id-${ productDetail.size }'>${ productDetail.size }
 										cm</label></li>
 							</core:forEach>
@@ -118,8 +118,7 @@
 					<div class='related__products__slider owl-carousel'>
 						<div class='col-lg-3'>
 							<div class='product__item'>
-								<div class='product__item__pic set-bg' data-setbg='<core:url value='
-									/template/web/img/shop/product-1.jpg' />'>
+								<div class='product__item__pic set-bg' data-setbg='<core:url value='/template/web/img/shop/product-1.jpg'/>'>
 								<div class='product__label'>
 									<span>Cupcake</span>
 								</div>
@@ -137,8 +136,7 @@
 					</div>
 					<div class='col-lg-3'>
 						<div class='product__item'>
-							<div class='product__item__pic set-bg' data-setbg='<core:url value='
-								/template/web/img/shop/product-2.jpg' />'>
+							<div class='product__item__pic set-bg' data-setbg='<core:url value='/template/web/img/shop/product-2.jpg'/>'>
 							<div class='product__label'>
 								<span>Cupcake</span>
 							</div>
@@ -156,8 +154,7 @@
 				</div>
 				<div class='col-lg-3'>
 					<div class='product__item'>
-						<div class='product__item__pic set-bg' data-setbg='<core:url value='
-							/template/web/img/shop/product-3.jpg' />'>
+						<div class='product__item__pic set-bg' data-setbg='<core:url value='/template/web/img/shop/product-3.jpg'/>'>
 						<div class='product__label'>
 							<span>Cupcake</span>
 						</div>
@@ -175,8 +172,7 @@
 			</div>
 			<div class='col-lg-3'>
 				<div class='product__item'>
-					<div class='product__item__pic set-bg' data-setbg='<core:url value='
-						/template/web/img/shop/product-4.jpg' />'>
+					<div class='product__item__pic set-bg' data-setbg='<core:url value='/template/web/img/shop/product-4.jpg'/>'>
 					<div class='product__label'>
 						<span>Cupcake</span>
 					</div>
@@ -194,8 +190,7 @@
 			</div>
 			<div class='col-lg-3'>
 				<div class='product__item'>
-					<div class='product__item__pic set-bg' data-setbg='<core:url value='
-						/template/web/img/shop/product-5.jpg' />'>
+					<div class='product__item__pic set-bg' data-setbg='<core:url value='/template/web/img/shop/product-5.jpg'/>'>
 					<div class='product__label'>
 						<span>Cupcake</span>
 					</div>
@@ -213,8 +208,7 @@
 			</div>
 			<div class='col-lg-3'>
 				<div class='product__item'>
-					<div class='product__item__pic set-bg' data-setbg='<core:url value='
-						/template/web/img/shop/product-6.jpg' />'>
+					<div class='product__item__pic set-bg' data-setbg='<core:url value='/template/web/img/shop/product-6.jpg'/>'>
 					<div class='product__label'>
 						<span>Cupcake</span>
 					</div>
@@ -247,7 +241,7 @@
 						currency : 'VND'
 						}).format('${productDetail.price}')
 						price.innerHTML = 'Giá: ' + priceStr;
-						<core:set var='price' value='${ productDetail.price }' />
+						<core:set var='price' value='${ productDetail.price }'/>
 						}
 					</core:forEach>
 				});

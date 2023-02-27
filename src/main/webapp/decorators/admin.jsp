@@ -2,9 +2,9 @@
 	<%@ include file='/common/taglib.jsp' %>
 
 		<core:if test='${type != null}'>
-			<core:set var='title' value='${title}' />
-			<core:set var='message' value='${message}' />
-			<core:set var='type' value='${type}' />
+			<core:set var='title' value='${title}'/>
+			<core:set var='message' value='${message}'/>
+			<core:set var='type' value='${type}'/>
 		</core:if>
 
 		<!DOCTYPE html>
@@ -14,31 +14,30 @@
 			<meta charset='UTF-8'>
 			<title>Admin</title>
 
-			<link rel='icon' type='image/x-icon' href='<core:url value=' /template/web/img/icon-tab.png' />' />
+			<link rel='icon' type='image/x-icon' href='<core:url value='/template/web/img/icon-tab.png'/>'/>
 
-			<link rel='stylesheet' href='<core:url value=' /template/admin/vendor/fonts/boxicons.css' />' />
+			<link rel='stylesheet' href='<core:url value='/template/admin/vendor/fonts/boxicons.css'/>'/>
 
-			<link rel='stylesheet' href='<core:url value=' /template/admin/vendor/css/core.css' />'
-			class='template-customizer-core-css' />
-			<link rel='stylesheet' href='<core:url value=' /template/admin/vendor/css/theme-default.css' />'
-			class='template-customizer-theme-css' />
-			<link rel='stylesheet' href='<core:url value=' /template/admin/css/admin.css' />' />
+			<link rel='stylesheet' href='<core:url value='/template/admin/vendor/css/core.css'/>'
+			class='template-customizer-core-css'/>
+			<link rel='stylesheet' href='<core:url value='/template/admin/vendor/css/theme-default.css'/>'
+			class='template-customizer-theme-css'/>
+			<link rel='stylesheet' href='<core:url value='/template/admin/css/admin.css'/>'/>
 
-			<link rel='stylesheet' href='<core:url value='
-				/template/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css' />' />
+			<link rel='stylesheet' href='<core:url value='/template/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.css'/>'/>
 
-			<link rel='stylesheet' href='<core:url value=' /template/admin/vendor/libs/apex-charts/apex-charts.css' />'
+			<link rel='stylesheet' href='<core:url value='/template/admin/vendor/libs/apex-charts/apex-charts.css'/>'
 			/>
 
-			<script src='<core:url value=' /template/admin/vendor/js/helpers.js' />'></script>
+			<script src='<core:url value='/template/admin/vendor/js/helpers.js'/>'></script>
 
-			<script src='<core:url value=' /template/admin/js/config.js' />'></script>
+			<script src='<core:url value='/template/admin/js/config.js'/>'></script>
 
-			<link rel='stylesheet' href='<core:url value=' /template/auth/css/toast.css' />' />
+			<link rel='stylesheet' href='<core:url value='/template/auth/css/toast.css'/>'/>
 
 			<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css'
 				integrity='sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=='
-				crossorigin='anonymous' />
+				crossorigin='anonymous'/>
 
 		</head>
 
@@ -50,9 +49,8 @@
 
 					<aside id='layout-menu' class='my-layout-menu layout-menu menu-vertical menu bg-menu-theme'>
 						<div class='app-brand demo'>
-							<a href='<core:url value=' /admin' />' class='app-brand-link'> <span
-								class='app-brand-logo demo'><img src='<core:url value='
-									/template/admin/img/logo-header.png' />'
+							<a href='<core:url value='/admin'/>' class='app-brand-link'> <span
+								class='app-brand-logo demo'><img src='<core:url value='/template/admin/img/logo-header.png'/>'
 								alt=''></span> <span class='app-brand-text demo menu-text fw-bolder ms-2'> </span>
 							</a>
 						</div>
@@ -61,15 +59,15 @@
 
 						<ul class='menu-inner py-1'>
 							<!-- Dashboard -->
-							<li class='menu-item' id='dashboard'><a href='<core:url value=' /admin' />'
+							<li class='menu-item' id='dashboard'><a href='<core:url value='/admin'/>'
 								class='menu-link'> <i class='menu-icon tf-icons bx bx-home-circle'></i> Dashboard
 								</a></li>
 
-							<li class='menu-item' id='category'><a href='<core:url value=' /admin/category' />'
+							<li class='menu-item' id='category'><a href='<core:url value='/admin/category'/>'
 								class='menu-link'>
 								Quản lý danh mục </a></li>
 
-							<li class='menu-item' id='product'><a href='<core:url value=' /admin/product' />'
+							<li class='menu-item' id='product'><a href='<core:url value='/admin/product'/>'
 								class='menu-link'>
 								Quản lý sản phẩm </a></li>
 						</ul>
@@ -94,7 +92,7 @@
 									<div class='nav-item d-flex align-items-center'>
 										<i class='bx bx-search fs-4 lh-0'></i> <input type='text'
 											class='form-control border-0 shadow-none' placeholder='Search...'
-											aria-label='Search...' />
+											aria-label='Search...'/>
 									</div>
 								</div>
 								<!-- /Search -->
@@ -105,8 +103,8 @@
 									<li class='nav-item navbar-dropdown dropdown-user dropdown'>
 										<div class='nav-link dropdown-toggle hide-arrow' data-bs-toggle='dropdown'>
 											<div class='avatar avatar-online'>
-												<img src='<core:url value=' /template/admin/img/avatars/1.png' />'
-												class='w-px-40 h-auto rounded-circle' />
+												<img src='<core:url value='/template/admin/img/avatars/1.png'/>'
+												class='w-px-40 h-auto rounded-circle'/>
 											</div>
 										</div>
 										<ul class='dropdown-menu dropdown-menu-end'>
@@ -115,9 +113,8 @@
 													<div class='d-flex'>
 														<div class='flex-shrink-0 me-3'>
 															<div class='avatar avatar-online'>
-																<img src='<core:url value='
-																	/template/admin/img/avatars/1.png' />'
-																class='w-px-40 h-auto rounded-circle' />
+																<img src='<core:url value='/template/admin/img/avatars/1.png'/>'
+																class='w-px-40 h-auto rounded-circle'/>
 															</div>
 														</div>
 														<div class='flex-grow-1'>
@@ -187,7 +184,6 @@
 											href='https://github.com/themeselection/sneat-html-admin-template-free/issues'
 											target='_blank' class='footer-link me-4'>Support</a>
 									</div>
-									<button onClick='test()'>a</button>
 								</div>
 							</footer>
 							<!-- / Footer -->
@@ -208,20 +204,20 @@
 			<div id='toast'></div>
 			<!-- /Toast -->
 
-			<script src='<core:url value=' /template/admin/vendor/libs/jquery/jquery.js' />'></script>
-			<script src='<core:url value=' /template/admin/vendor/libs/popper/popper.js' />'></script>
-			<script src='<core:url value=' /template/admin/vendor/js/bootstrap.js' />'></script>
-			<script src='<core:url value=' /template/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.js' />'>
+			<script src='<core:url value='/template/admin/vendor/libs/jquery/jquery.js'/>'></script>
+			<script src='<core:url value='/template/admin/vendor/libs/popper/popper.js'/>'></script>
+			<script src='<core:url value='/template/admin/vendor/js/bootstrap.js'/>'></script>
+			<script src='<core:url value='/template/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.js'/>'>
 			</script>
 
-			<script src='<core:url value=' /template/admin/vendor/js/menu.js' />'></script>
-			<script src='<core:url value=' /template/admin/vendor/libs/apex-charts/apexcharts.js' />'></script>
+			<script src='<core:url value='/template/admin/vendor/js/menu.js'/>'></script>
+			<script src='<core:url value='/template/admin/vendor/libs/apex-charts/apexcharts.js'/>'></script>
 
-			<script src='<core:url value=' /template/admin/js/main.js' />'></script>
+			<script src='<core:url value='/template/admin/js/main.js'/>'></script>
 
-			<script src='<core:url value=' /template/admin/js/dashboards-analytics.js' />'></script>
+			<script src='<core:url value='/template/admin/js/dashboards-analytics.js'/>'></script>
 
-			<script src='<core:url value=' /template/auth/js/script.js' />'></script>
+			<script src='<core:url value='/template/auth/js/script.js'/>'></script>
 
 			<script type='text/javascript'>
 				/* Active navigation */

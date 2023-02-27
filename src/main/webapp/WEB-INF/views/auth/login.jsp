@@ -7,7 +7,7 @@
 					<div class='card'>
 						<div class='card-body'>
 							<div class='app-brand justify-content-center'>
-								<a href='<core:url value=' /' />' class='app-brand-link gap-2'>
+								<a href='<core:url value='/'/>' class='app-brand-link gap-2'>
 								<span class='app-brand-logo demo'> </span> <span
 									class='app-brand-text demo text-body fw-bolder'>Cutie Pies</span>
 								</a>
@@ -35,7 +35,7 @@
 								<!-- <div class='mb-3'>
 								<div class='form-check'>
 									<input class='form-check-input' type='checkbox'
-										id='remember-me' /> <label class='form-check-label'
+										id='remember-me'/> <label class='form-check-label'
 										for='remember-me'> Remember Me </label>
 								</div>
 							</div> -->
@@ -46,7 +46,7 @@
 							</form>
 
 							<p class='text-center'>
-								<span>Bạn chưa có tài khoản?</span> <a href='<core:url value=' /register' />'> <span>Tạo
+								<span>Bạn chưa có tài khoản?</span> <a href='<core:url value='/register'/>'> <span>Tạo
 									tài
 									khoản mới</span>
 								</a>

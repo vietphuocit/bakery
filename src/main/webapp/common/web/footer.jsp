@@ -21,7 +21,7 @@
 							<div class='footer__logo'>
 								<a href='#'> <!--  -->
 									<img src='<core:url
-								value=' /template/web/img/logo-footer.png' />' /></a>
+								value='/template/web/img/logo-footer.png'/>'/></a>
 							</div>
 							<p>Lorem ipsum dolor amet, consectetur adipiscing elit, sed do
 								eiusmod tempor incididunt ut labore dolore magna aliqua.</p>

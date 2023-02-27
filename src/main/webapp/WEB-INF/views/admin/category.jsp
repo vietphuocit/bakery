@@ -1,7 +1,7 @@
 <%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8' %>
 	<%@ include file='/common/taglib.jsp' %>
 
-		<core:set var='categories' value='${ categories }' />
+		<core:set var='categories' value='${ categories }'/>
 
 		<div class='container-xxl flex-grow-1 container-p-y'>
 			<h4 class='fw-bold py-3 mb-4'>
@@ -41,8 +41,8 @@
 													data-bs-target='#editCategory${ category.id }' type='button'>
 													<i class='bx bx-edit-alt me-1'></i> Edit
 												</button>
-												<a class='dropdown-item' href='<core:url value=' /admin/category/${
-													category.id }' />'><i class='bx bx-trash me-1'></i> Delete</a>
+												<a class='dropdown-item' href='<core:url value='/admin/category/${
+													category.id }'/>'><i class='bx bx-trash me-1'></i> Delete</a>
 											</div>
 										</div>
 									</td>
@@ -63,11 +63,11 @@
 						<h5 class='modal-title' id='btnAddCategory'>Thêm mới danh mục</h5>
 						<button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
 					</div>
-					<form class='modal-body' action='<core:url value=' /admin/category' />' method='POST'>
+					<form class='modal-body' action='<core:url value='/admin/category'/>' method='POST'>
 					<div class='row'>
 						<div class='col mb-3'>
 							<label for='nameBasic' class='form-label'>Tên danh mục</label> <input type='text' id='name'
-								name='name' class='form-control' placeholder='Nhập tên' />
+								name='name' class='form-control' placeholder='Nhập tên'/>
 						</div>
 					</div>
 
@@ -90,13 +90,13 @@
 							<h5 class='modal-title' id='exampleModalLabel1'>Sửa danh mục</h5>
 							<button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
 						</div>
-						<form class='modal-body' action='<core:url value=' /admin/category/${ category.id }' />'
+						<form class='modal-body' action='<core:url value='/admin/category/${ category.id }'/>'
 						method='POST'>
 						<div class='row'>
 							<div class='col mb-3'>
 								<label for='nameBasic' class='form-label'>Tên danh mục</label> <input type='text'
 									id='name' name='name' class='form-control' placeholder='Nhập tên'
-									value='${ category.name }' />
+									value='${ category.name }'/>
 							</div>
 						</div>
 

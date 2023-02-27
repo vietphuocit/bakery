@@ -23,7 +23,7 @@
 									<tr>
 										<td class='product__cart__item'>
 											<div class='product__cart__item__pic'>
-												<img src='<core:url value=' /template/web/img/shop/cart/cart-1.jpg' />'
+												<img src='<core:url value='/template/web/img/shop/cart/cart-1.jpg'/>'
 												alt=''>
 											</div>
 											<div class='product__cart__item__text'>
@@ -39,7 +39,7 @@
 									<tr>
 										<td class='product__cart__item'>
 											<div class='product__cart__item__pic'>
-												<img src='<core:url value=' /template/web/img/shop/cart/cart-2.jpg' />'
+												<img src='<core:url value='/template/web/img/shop/cart/cart-2.jpg'/>'
 												alt=''>
 											</div>
 											<div class='product__cart__item__text'>
@@ -55,7 +55,7 @@
 									<tr>
 										<td class='product__cart__item'>
 											<div class='product__cart__item__pic'>
-												<img src='<core:url value=' /template/web/img/shop/cart/cart-3.jpg' />'
+												<img src='<core:url value='/template/web/img/shop/cart/cart-3.jpg'/>'
 												alt=''>
 											</div>
 											<div class='product__cart__item__text'>
@@ -71,7 +71,7 @@
 									<tr>
 										<td class='product__cart__item'>
 											<div class='product__cart__item__pic'>
-												<img src='<core:url value=' /template/web/img/shop/cart/cart-4.jpg' />'
+												<img src='<core:url value='/template/web/img/shop/cart/cart-4.jpg'/>'
 												alt=''>
 											</div>
 											<div class='product__cart__item__text'>

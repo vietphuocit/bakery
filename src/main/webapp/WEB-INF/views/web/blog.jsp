@@ -9,7 +9,7 @@
 					<div class='col-lg-8'>
 						<div class='blog__item'>
 							<div class='blog__item__pic set-bg' data-setbg='<core:url value='
-								/template/web/img/blog/blog-1.jpg' />'>
+								/template/web/img/blog/blog-1.jpg'/>'>
 							<div class='blog__pic__inner'>
 								<div class='label'>Recipes</div>
 								<ul>
@@ -31,7 +31,7 @@
 					</div>
 					<div class='blog__item'>
 						<div class='blog__item__pic set-bg' data-setbg='<core:url value='
-							/template/web/img/blog/blog-2.jpg' />'>
+							/template/web/img/blog/blog-2.jpg'/>'>
 						<div class='blog__pic__inner'>
 							<div class='label'>Recipes</div>
 							<ul>
@@ -53,7 +53,7 @@
 				</div>
 				<div class='blog__item'>
 					<div class='blog__item__pic set-bg' data-setbg='<core:url value='
-						/template/web/img/blog/blog-3.jpg' />'>
+						/template/web/img/blog/blog-3.jpg'/>'>
 					<div class='blog__pic__inner'>
 						<div class='label'>Recipes</div>
 						<ul>
@@ -74,7 +74,7 @@
 				</div>
 			</div>
 			<div class='blog__item'>
-				<div class='blog__item__pic set-bg' data-setbg='<core:url value=' /template/web/img/blog/blog-4.jpg' />
+				<div class='blog__item__pic set-bg' data-setbg='<core:url value='/template/web/img/blog/blog-4.jpg'/>
 				'>
 				<div class='blog__pic__inner'>
 					<div class='label'>Recipes</div>
@@ -125,7 +125,7 @@
 						<div class='blog__sidebar__recent'>
 							<div class='blog__sidebar__recent__item'>
 								<div class='blog__sidebar__recent__item__pic'>
-									<img src='<core:url value=' /template/web/img/blog/br-1.jpg' />'
+									<img src='<core:url value='/template/web/img/blog/br-1.jpg'/>'
 									alt=''>
 								</div>
 								<div class='blog__sidebar__recent__item__text'>
@@ -135,7 +135,7 @@
 							</div>
 							<div class='blog__sidebar__recent__item'>
 								<div class='blog__sidebar__recent__item__pic'>
-									<img src='<core:url value=' /template/web/img/blog/br-2.jpg' />'
+									<img src='<core:url value='/template/web/img/blog/br-2.jpg'/>'
 									alt=''>
 								</div>
 								<div class='blog__sidebar__recent__item__text'>
@@ -145,7 +145,7 @@
 							</div>
 							<div class='blog__sidebar__recent__item'>
 								<div class='blog__sidebar__recent__item__pic'>
-									<img src='<core:url value=' /template/web/img/blog/br-3.jpg' />'
+									<img src='<core:url value='/template/web/img/blog/br-3.jpg'/>'
 									alt=''>
 								</div>
 								<div class='blog__sidebar__recent__item__text'>
@@ -155,7 +155,7 @@
 							</div>
 							<div class='blog__sidebar__recent__item'>
 								<div class='blog__sidebar__recent__item__pic'>
-									<img src='<core:url value=' /template/web/img/blog/br-4.jpg' />'
+									<img src='<core:url value='/template/web/img/blog/br-4.jpg'/>'
 									alt=''>
 								</div>
 								<div class='blog__sidebar__recent__item__text'>
@@ -165,7 +165,7 @@
 							</div>
 							<div class='blog__sidebar__recent__item'>
 								<div class='blog__sidebar__recent__item__pic'>
-									<img src='<core:url value=' /template/web/img/blog/br-5.jpg' />'
+									<img src='<core:url value='/template/web/img/blog/br-5.jpg'/>'
 									alt=''>
 								</div>
 								<div class='blog__sidebar__recent__item__text'>

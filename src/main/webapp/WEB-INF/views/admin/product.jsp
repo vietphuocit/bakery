@@ -1,8 +1,8 @@
 <%@ page language='java' contentType='text/html; charset=UTF-8' pageEncoding='UTF-8' %>
 	<%@ include file='/common/taglib.jsp' %>
 
-		<core:set var='categories' value='${ categories }' />
-		<core:set var='products' value='${ products }' />
+		<core:set var='categories' value='${ categories }'/>
+		<core:set var='products' value='${ products }'/>
 
 		<div class='container-xxl flex-grow-1 container-p-y'>
 			<h4 class='fw-bold py-3 mb-4'>
@@ -34,8 +34,7 @@
 								<tr>
 									<td class='text-center'>${ product.primaryKeyProduct.id }</td>
 									<td class='text-center'>${ product.name }</td>
-									<td class='text-center'><img class='img-thumbnail' src='<core:url value='
-											/uploads/${ product.image }' />' /></td>
+									<td class='text-center'><img class='img-thumbnail' src='<core:url value='/uploads/${ product.image }'/>'/></td>
 									<td class='text-center'>${ product.primaryKeyProduct.size }</td>
 									<td class='text-center'>${ product.price }</td>
 									<td class='text-center'>${ product.quantity }</td>
@@ -51,9 +50,9 @@
 													type='button'>
 													<i class='bx bx-edit-alt me-1'></i> Edit
 												</button>
-												<a class='dropdown-item' href='<core:url value=' /admin/product/${
+												<a class='dropdown-item' href='<core:url value='/admin/product/${
 													product.primaryKeyProduct.id }/${ product.primaryKeyProduct.size
-													}' />'><i class='bx bx-trash me-1'></i> Delete</a>
+													}'/>'><i class='bx bx-trash me-1'></i> Delete</a>
 											</div>
 										</div>
 									</td>
@@ -74,19 +73,19 @@
 						<h5 class='modal-title' id='btnAddCategory'>Thêm mới sản phẩm</h5>
 						<button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
 					</div>
-					<form id='formAddProduct' class='modal-body' action='<core:url value=' /admin/product' />'
+					<form id='formAddProduct' class='modal-body' action='<core:url value='/admin/product'/>'
 					method='POST'
 					enctype='multipart/form-data'>
 					<div class='row'>
 						<div class='col mb-3'>
 							<label for='name' class='form-label'>Tên sản phẩm</label> <input type='text' id='name'
-								name='name' class='form-control' placeholder='Nhập tên sản phẩm' />
+								name='name' class='form-control' placeholder='Nhập tên sản phẩm'/>
 						</div>
 					</div>
 					<div class='row'>
 						<div class='col mb-3'>
 							<label for='image' class='form-label'>Ảnh</label> <input type='file' id='image' name='image'
-								class='form-control' accept='image/png, image/jpeg' />
+								class='form-control' accept='image/png, image/jpeg'/>
 						</div>
 					</div>
 					<div class='row'>
@@ -103,21 +102,21 @@
 					<div class='row'>
 						<div class='col mb-3'>
 							<label for='size' class='form-label'>Kích thước (cm)</label> <input type='number' id='size'
-								name='size' class='form-control' placeholder='Nhập kích thước' />
+								name='size' class='form-control' placeholder='Nhập kích thước'/>
 						</div>
 						<div class='col mb-3'>
 							<label for='price' class='form-label'>Giá</label> <input type='text' id='price' name='price'
-								class='form-control' placeholder='Nhập giá' />
+								class='form-control' placeholder='Nhập giá'/>
 						</div>
 					</div>
 					<div class='row'>
 						<div class='col mb-3'>
 							<label for='quantity' class='form-label'>Số lượng</label> <input type='number' id='quantity'
-								name='quantity' class='form-control' placeholder='Nhập số lượng' />
+								name='quantity' class='form-control' placeholder='Nhập số lượng'/>
 						</div>
 						<div class='col mb-3'>
 							<label for='discount' class='form-label'>Giảm giá</label> <input type='number' id='discount'
-								name='discount' class='form-control' placeholder='Nhập số lượng' />
+								name='discount' class='form-control' placeholder='Nhập số lượng'/>
 						</div>
 					</div>
 					<div class='row'>
@@ -149,20 +148,20 @@
 							<button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
 						</div>
 						<form id='formEditProduct${ product.primaryKeyProduct.id }-${ product.primaryKeyProduct.size }'
-							class='modal-body' action='<core:url value=' /admin/product/${ product.primaryKeyProduct.id
-							}' />'
+							class='modal-body' action='<core:url value='/admin/product/${ product.primaryKeyProduct.id
+							}'/>'
 						method='POST' enctype='multipart/form-data'>
 						<div class='row'>
 							<div class='col mb-3'>
 								<label for='name' class='form-label'>Tên sản phẩm</label> <input type='text' id='name'
 									name='name' class='form-control' placeholder='Nhập tên sản phẩm'
-									value='${ product.name }' />
+									value='${ product.name }'/>
 							</div>
 						</div>
 						<div class='row'>
 							<div class='col mb-3'>
 								<label for='image' class='form-label'>Ảnh</label> <input type='file' id='image'
-									name='image' class='form-control' accept='image/png, image/jpeg' />
+									name='image' class='form-control' accept='image/png, image/jpeg'/>
 							</div>
 						</div>
 						<div class='row'>
@@ -185,19 +184,19 @@
 							<div class='col mb-3'>
 								<label for='price' class='form-label'>Giá</label> <input type='text' id='price'
 									name='price' class='form-control' placeholder='Nhập giá'
-									value='${ product.price }' />
+									value='${ product.price }'/>
 							</div>
 						</div>
 						<div class='row'>
 							<div class='col mb-3'>
 								<label for='quantity' class='form-label'>Số lượng</label> <input type='number'
 									id='quantity' name='quantity' class='form-control' placeholder='Nhập số lượng'
-									value='${ product.quantity }' />
+									value='${ product.quantity }'/>
 							</div>
 							<div class='col mb-3'>
 								<label for='discount' class='form-label'>Giảm giá</label> <input type='number'
 									id='discount' name='discount' class='form-control' placeholder='Nhập số lượng'
-									value='${ product.discount }' />
+									value='${ product.discount }'/>
 							</div>
 						</div>
 						<div class='row'>

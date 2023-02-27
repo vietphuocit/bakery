@@ -50,7 +50,7 @@
 			</div>
 
 			<div class='overlay-container'>
-				<div class='overlay set-bg' data-setbg='<core:url value=' /template/auth/img/auth.jpg' />'>
+				<div class='overlay set-bg' data-setbg='<core:url value='/template/auth/img/auth.jpg'/>'>
 				<div class='overlay-panel overlay-left'>
 					<h1 class='title'>
 						Hello <br> friends
