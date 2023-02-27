@@ -39,19 +39,20 @@ public class OrderServiceImpl implements OrderService {
 	public boolean addToCart(DetailRequest orderRequest, String username) {
 		OrderStatus orderStatus = orderStatusRepository.findByName("giỏ hàng");
 		Order oldOrder = orderRepository.findByOrderStatusAndCustomer_username(orderStatus, username);
+
 		Product product = productRepository
 				.findByPrimaryKeyProduct(new PrimaryKeyProduct(orderRequest.getId(), orderRequest.getSize()));
 
-		if (oldOrder != null) {
+		if (product == null)
+			return false;
 
-			if (product == null)
-				return false;
+		if (oldOrder != null) {
 
 			OrderDetails orderDetails = orderDetailsRepository.findByOrderAndProduct(oldOrder, product);
 
 			if (orderDetails != null) {
 				orderDetails.setTotalMoney((long) (product.getPrice() * orderRequest.getQuantity()));
-				orderDetails.setQuantity(orderRequest.getQuantity());
+				orderDetails.setQuantity(orderDetails.getQuantity() + orderRequest.getQuantity());
 			} else {
 				orderDetails = new OrderDetails(orderRequest.getQuantity(),
 						(long) product.getPrice() * orderRequest.getQuantity(), oldOrder, product);
