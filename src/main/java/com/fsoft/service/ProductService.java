@@ -19,4 +19,6 @@ public interface ProductService {
 	List<Product> findByCategory(Long id);
 	
 	ProductResponse findByPrimaryKeyProductId(Long id);
+	
+	boolean isFavourite(Long id, String username);
 }

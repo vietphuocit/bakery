@@ -18,10 +18,13 @@ import com.fsoft.dto.response.ProductDetailResponse;
 import com.fsoft.dto.response.ProductResponse;
 import com.fsoft.entity.Category;
 import com.fsoft.entity.GeneratedIdProduct;
+import com.fsoft.entity.Order;
 import com.fsoft.entity.PrimaryKeyProduct;
 import com.fsoft.entity.Product;
 import com.fsoft.repository.CategoryRepository;
 import com.fsoft.repository.GeneratedIdProductRepository;
+import com.fsoft.repository.OrderDetailsRepository;
+import com.fsoft.repository.OrderRepository;
 import com.fsoft.repository.ProductRepository;
 
 @Service
@@ -35,6 +38,12 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	CategoryRepository categoryRepository;
+
+	@Autowired
+	OrderRepository orderRepository;
+
+	@Autowired
+	OrderDetailsRepository orderDetailsRepository;
 
 	@Autowired
 	GeneratedIdProductRepository generatedIdProductRepository;
@@ -132,6 +141,13 @@ public class ProductServiceImpl implements ProductService {
 		return new ProductResponse(products.get(0).getPrimaryKeyProduct().getId(), products.get(0).getName(),
 				products.get(0).getDescription(), products.get(0).getCategory(), products.get(0).getImage(),
 				productDetails);
+	}
+
+	@Override
+	public boolean isFavourite(Long id, String username) {
+		Order order = orderRepository.findByOrderStatus_nameAndCustomer_username("yêu thích", username);
+		Product product = productRepository.findByPrimaryKeyProduct_id(id).get(0);
+		return order != null && orderDetailsRepository.findByOrderAndProduct(order, product) != null;
 	}
 
 	public Long getGeneratedIdProduct() {

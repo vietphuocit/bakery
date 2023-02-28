@@ -8,8 +8,7 @@
 				<div class='row'>
 					<div class='col-lg-8'>
 						<div class='blog__item'>
-							<div class='blog__item__pic set-bg' data-setbg='<core:url value='
-								/template/web/img/blog/blog-1.jpg'/>'>
+							<div class='blog__item__pic set-bg' data-setbg='<core:url value='/template/web/img/blog/blog-1.jpg'/>'>
 							<div class='blog__pic__inner'>
 								<div class='label'>Recipes</div>
 								<ul>
@@ -30,8 +29,7 @@
 						</div>
 					</div>
 					<div class='blog__item'>
-						<div class='blog__item__pic set-bg' data-setbg='<core:url value='
-							/template/web/img/blog/blog-2.jpg'/>'>
+						<div class='blog__item__pic set-bg' data-setbg='<core:url value='/template/web/img/blog/blog-2.jpg'/>'>
 						<div class='blog__pic__inner'>
 							<div class='label'>Recipes</div>
 							<ul>
@@ -52,8 +50,7 @@
 					</div>
 				</div>
 				<div class='blog__item'>
-					<div class='blog__item__pic set-bg' data-setbg='<core:url value='
-						/template/web/img/blog/blog-3.jpg'/>'>
+					<div class='blog__item__pic set-bg' data-setbg='<core:url value='/template/web/img/blog/blog-3.jpg'/>'>
 					<div class='blog__pic__inner'>
 						<div class='label'>Recipes</div>
 						<ul>
@@ -74,8 +71,7 @@
 				</div>
 			</div>
 			<div class='blog__item'>
-				<div class='blog__item__pic set-bg' data-setbg='<core:url value='/template/web/img/blog/blog-4.jpg'/>
-				'>
+				<div class='blog__item__pic set-bg' data-setbg='<core:url value='/template/web/img/blog/blog-4.jpg'/>'>
 				<div class='blog__pic__inner'>
 					<div class='label'>Recipes</div>
 					<ul>

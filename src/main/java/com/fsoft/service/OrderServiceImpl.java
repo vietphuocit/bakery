@@ -77,6 +77,44 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
+	public boolean addToFavourite(Long id, String username) {
+		OrderStatus orderStatus = orderStatusRepository.findByName("yêu thích");
+		Order oldOrderFavourite = orderRepository.findByOrderStatusAndCustomer_username(orderStatus, username);
+
+		List<Product> products = productRepository.findByPrimaryKeyProduct_id(id);
+
+		if (products == null || products.isEmpty())
+			return false;
+
+		Product product = products.get(0);
+
+		if (oldOrderFavourite != null) {
+			OrderDetails orderDetails = orderDetailsRepository.findByOrderAndProduct(oldOrderFavourite, product);
+
+			if (orderDetails != null) {
+				orderDetailsRepository.delete(orderDetails);
+			} else {
+				orderDetailsRepository.save(new OrderDetails(0, (long) 0, oldOrderFavourite, product));
+			}
+
+			return true;
+		}
+
+		try {
+
+			Order order = orderRepository.save(new Order(orderStatus, userRepository.findByUsername(username).get()));
+
+			orderDetailsRepository.save(new OrderDetails(0, (long) 0, order, product));
+
+			return true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
 	public List<OrderDetails> getCart(String username) {
 		OrderStatus orderStatus = orderStatusRepository.findByName("giỏ hàng");
 		Order oldOrder = orderRepository.findByOrderStatusAndCustomer_username(orderStatus, username);
@@ -87,4 +125,14 @@ public class OrderServiceImpl implements OrderService {
 		return orderDetailsRepository.findByOrder(oldOrder);
 	}
 
+	@Override
+	public List<OrderDetails> getFavourite(String username) {
+		OrderStatus orderStatus = orderStatusRepository.findByName("yêu thích");
+		Order oldOrder = orderRepository.findByOrderStatusAndCustomer_username(orderStatus, username);
+
+		if (oldOrder == null)
+			return null;
+
+		return orderDetailsRepository.findByOrder(oldOrder);
+	}
 }
