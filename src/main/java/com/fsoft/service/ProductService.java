@@ -9,6 +9,8 @@ import com.fsoft.entity.Product;
 public interface ProductService {
 
 	List<Product> findAllOrderASCById();
+	
+	List<Product> findAllDistinct();
 
 	boolean createProduct(ProductRequest productRequest);
 

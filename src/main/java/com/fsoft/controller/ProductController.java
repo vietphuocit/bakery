@@ -78,7 +78,7 @@ public class ProductController {
 	@RequestMapping(value = "/product", method = RequestMethod.GET)
 	public String pageProduct(Model model) {
 
-		model.addAttribute("products", productService.findAllOrderASCById());
+		model.addAttribute("products", productService.findAllDistinct());
 		model.addAttribute("categories", categoryService.findAllOrderASCById());
 
 		return "web/product";

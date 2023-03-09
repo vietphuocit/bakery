@@ -41,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
 		Order oldOrder = orderRepository.findByOrderStatusAndCustomer_username(orderStatus, username);
 
 		Product product = productRepository
-				.findByPrimaryKeyProduct(new PrimaryKeyProduct(orderRequest.getId(), orderRequest.getSize()));
+				.findByDeletedFalseAndPrimaryKeyProduct(new PrimaryKeyProduct(orderRequest.getId(), orderRequest.getSize()));
 
 		if (product == null)
 			return false;
@@ -81,7 +81,7 @@ public class OrderServiceImpl implements OrderService {
 		OrderStatus orderStatus = orderStatusRepository.findByName("yêu thích");
 		Order oldOrderFavourite = orderRepository.findByOrderStatusAndCustomer_username(orderStatus, username);
 
-		List<Product> products = productRepository.findByPrimaryKeyProduct_id(id);
+		List<Product> products = productRepository.findByDeletedFalseAndPrimaryKeyProduct_id(id);
 
 		if (products == null || products.isEmpty())
 			return false;
@@ -118,7 +118,7 @@ public class OrderServiceImpl implements OrderService {
 	public List<OrderDetails> getCart(String username) {
 		OrderStatus orderStatus = orderStatusRepository.findByName("giỏ hàng");
 		Order oldOrder = orderRepository.findByOrderStatusAndCustomer_username(orderStatus, username);
-
+		
 		if (oldOrder == null)
 			return null;
 
