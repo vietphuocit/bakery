@@ -1,17 +1,15 @@
 package com.fsoft.controller;
 
 import java.security.Principal;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fsoft.dto.request.DetailRequest;
-import com.fsoft.entity.OrderDetails;
 import com.fsoft.service.OrderService;
 
 @Controller
@@ -23,7 +21,7 @@ public class OrderController {
 	@RequestMapping(value = { "cart" }, method = RequestMethod.GET)
 	public String cartPage(Model model, Principal principal) {
 
-		addCartAttributes(model, principal);
+		model.addAttribute("cart", orderService.getCart(principal.getName()));
 		return "web/cart";
 	}
 
@@ -42,14 +40,22 @@ public class OrderController {
 
 		orderService.addToCart(orderRequest, principal.getName());
 
-		addCartAttributes(model, principal);
+		model.addAttribute("cart", orderService.getCart(principal.getName()));
 		return "web/cart";
 	}
 
-	public void addCartAttributes(Model model, Principal principal) {
+	@RequestMapping(value = { "wishlist" }, method = RequestMethod.GET)
+	public String wishlistPage(Model model, Principal principal) {
+		
+		model.addAttribute("wishlist", orderService.getFavourite(principal.getName()));
+		return "web/wishlist";
+	}
 
-		List<OrderDetails> orderDetails = orderService.getCart(principal.getName());
+	@RequestMapping(value = { "wishlist/{id}" }, method = RequestMethod.GET)
+	public String favourite(Model model, Principal principal, @PathVariable("id") Long id) {
 
-		model.addAttribute("cart", orderDetails);
+		orderService.addToFavourite(id, principal.getName());
+
+		return "redirect:/product/" + id;
 	}
 }

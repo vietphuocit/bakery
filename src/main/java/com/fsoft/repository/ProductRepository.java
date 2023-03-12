@@ -10,18 +10,16 @@ import com.fsoft.entity.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-	List<Product> findByCategory_id(Long id);
+	List<Product> findByDeletedFalseAndCategory_id(Long id);
 
-	List<Product> findAllByOrderByPrimaryKeyProductAsc();
+	List<Product> findByDeletedFalseOrderByPrimaryKeyProductAsc();
 
-	@Query("SELECT p FROM Product p GROUP BY p.name")
-	List<Product> findAllByGroupByName();
+	@Query("SELECT p FROM Product p WHERE deleted = false GROUP BY p.name")
+	List<Product> findByDeleteFalseAndGroupByName();
 
-	Product findByPrimaryKeyProduct(PrimaryKeyProduct primaryKeyProduct);
+	Product findByDeletedFalseAndPrimaryKeyProduct(PrimaryKeyProduct primaryKeyProduct);
 
-	Product findByName(String name);
+	List<Product> findByDeletedFalseAndName(String name);
 
-	List<Product> findAllByName(String name);
-
-	List<Product> findByPrimaryKeyProduct_id(Long id);
+	List<Product> findByDeletedFalseAndPrimaryKeyProduct_id(Long id);
 }

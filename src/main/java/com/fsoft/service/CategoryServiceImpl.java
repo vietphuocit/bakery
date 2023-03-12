@@ -54,7 +54,7 @@ public class CategoryServiceImpl implements CategoryService {
 		if (categoryRepository.findOne(id) == null)
 			return false;
 
-		if (!productRepository.findByCategory_id(id).isEmpty())
+		if (!productRepository.findByDeletedFalseAndCategory_id(id).isEmpty())
 			return false;
 
 		categoryRepository.delete(id);

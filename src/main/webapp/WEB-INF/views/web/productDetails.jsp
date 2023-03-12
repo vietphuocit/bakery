@@ -3,6 +3,12 @@
 <%@ include file='/common/taglib.jsp'%>
 
 <core:set var='price' value='${ product.productDetails.get(0).price }' />
+<core:set var='id' value='${ product.id }' />
+<core:set var='favourite' value='icon_heart_alt' />
+
+<core:if test="${ isFavourite }">
+	<core:set var='favourite' value='icon_heart' />
+</core:if>
 
 <core:import url='/common/web/breadcrumb.jsp'></core:import>
 
@@ -48,7 +54,9 @@
 						</div>
 						<div class='option'>
 							<button type="submit" class='primary-btn'>Add to cart</button>
-							<a href="#" class='heart__btn'> <span class='icon_heart_alt'></span>
+							<a href="<core:url value='/wishlist/${ id }'/>"
+								class='heart__btn'> <span
+								class='${ favourite }'></span>
 							</a>
 						</div>
 					</div>

@@ -41,10 +41,4 @@ public class WebController {
 
 		return "web/contact";
 	}
-
-	@RequestMapping(value = { "wishlist/", "wishlist" }, method = RequestMethod.GET)
-	public String wishlistPage(Model model) {
-
-		return "web/wishlist";
-	}
 }

@@ -18,10 +18,13 @@ import com.fsoft.dto.response.ProductDetailResponse;
 import com.fsoft.dto.response.ProductResponse;
 import com.fsoft.entity.Category;
 import com.fsoft.entity.GeneratedIdProduct;
+import com.fsoft.entity.Order;
 import com.fsoft.entity.PrimaryKeyProduct;
 import com.fsoft.entity.Product;
 import com.fsoft.repository.CategoryRepository;
 import com.fsoft.repository.GeneratedIdProductRepository;
+import com.fsoft.repository.OrderDetailsRepository;
+import com.fsoft.repository.OrderRepository;
 import com.fsoft.repository.ProductRepository;
 
 @Service
@@ -37,11 +40,22 @@ public class ProductServiceImpl implements ProductService {
 	CategoryRepository categoryRepository;
 
 	@Autowired
+	OrderRepository orderRepository;
+
+	@Autowired
+	OrderDetailsRepository orderDetailsRepository;
+
+	@Autowired
 	GeneratedIdProductRepository generatedIdProductRepository;
 
 	@Override
 	public List<Product> findAllOrderASCById() {
-		return productRepository.findAllByGroupByName();
+		return productRepository.findByDeletedFalseOrderByPrimaryKeyProductAsc();
+	}
+
+	@Override
+	public List<Product> findAllDistinct() {
+		return productRepository.findByDeleteFalseAndGroupByName();
 	}
 
 	@Override
@@ -79,7 +93,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public boolean updateProduct(Long id, ProductRequest productRequest) {
 		Product product = productRepository
-				.findByPrimaryKeyProduct(new PrimaryKeyProduct(id, productRequest.getSize()));
+				.findByDeletedFalseAndPrimaryKeyProduct(new PrimaryKeyProduct(id, productRequest.getSize()));
 
 		Category category = categoryRepository.findOne(productRequest.getCategoryId());
 
@@ -105,23 +119,27 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public boolean deleteProduct(Long id, int size) {
-		Product product = productRepository.findByPrimaryKeyProduct(new PrimaryKeyProduct(id, size));
-		if (product != null) {
-			productRepository.delete(product);
-			return true;
-		}
+		Product product = productRepository.findByDeletedFalseAndPrimaryKeyProduct(new PrimaryKeyProduct(id, size));
 
-		return false;
+		product.setDeleted(true);
+
+		try {
+			productRepository.save(product);
+			return true;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
 	}
 
 	@Override
 	public List<Product> findByCategory(Long id) {
-		return productRepository.findByCategory_id(id);
+		return productRepository.findByDeletedFalseAndCategory_id(id);
 	}
 
 	@Override
 	public ProductResponse findByPrimaryKeyProductId(Long id) {
-		List<Product> products = productRepository.findByPrimaryKeyProduct_id(id);
+		List<Product> products = productRepository.findByDeletedFalseAndPrimaryKeyProduct_id(id);
 		List<ProductDetailResponse> productDetails = new ArrayList<>();
 
 		for (Product product : products) {
@@ -134,13 +152,20 @@ public class ProductServiceImpl implements ProductService {
 				productDetails);
 	}
 
+	@Override
+	public boolean isFavourite(Long id, String username) {
+		Order order = orderRepository.findByOrderStatus_nameAndCustomer_username("yêu thích", username);
+		Product product = productRepository.findByDeletedFalseAndPrimaryKeyProduct_id(id).get(0);
+		return order != null && orderDetailsRepository.findByOrderAndProduct(order, product) != null;
+	}
+
 	public Long getGeneratedIdProduct() {
 		List<GeneratedIdProduct> ids = generatedIdProductRepository.findAll();
 		if (ids != null && !ids.isEmpty()) {
 			generatedIdProductRepository.updateCount();
 			return ids.get(0).getCount();
 		} else {
-			generatedIdProductRepository.save(new GeneratedIdProduct((long) 0));
+			generatedIdProductRepository.save(new GeneratedIdProduct((long) 1));
 			return getGeneratedIdProduct();
 		}
 	}

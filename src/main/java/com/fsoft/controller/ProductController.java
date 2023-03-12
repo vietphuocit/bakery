@@ -1,5 +1,7 @@
 package com.fsoft.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -76,17 +78,18 @@ public class ProductController {
 	@RequestMapping(value = "/product", method = RequestMethod.GET)
 	public String pageProduct(Model model) {
 
-		model.addAttribute("products", productService.findAllOrderASCById());
+		model.addAttribute("products", productService.findAllDistinct());
 		model.addAttribute("categories", categoryService.findAllOrderASCById());
 
 		return "web/product";
 	}
 
 	@RequestMapping(value = "/product/{id}", method = RequestMethod.GET)
-	public String pageProductDetail(Model model, @PathVariable("id") Long id) {
+	public String pageProductDetail(Model model, Principal principal, @PathVariable("id") Long id) {
 
 		model.addAttribute("product", productService.findByPrimaryKeyProductId(id));
-
+		model.addAttribute("isFavourite",
+				principal == null ? false : productService.isFavourite(id, principal.getName()));
 		return "web/productDetails";
 	}
 
